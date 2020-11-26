@@ -1,0 +1,47 @@
+<html>
+<head>
+
+  <title>Cosmatt</title>  
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="src/css/unitLabelControl.css">
+  <style type="text/css">
+    .unitDropDownTime{
+         width: 280px;
+         height: 60px;
+         position: absolute;
+         left: 260px;
+         top: 50px;
+     }
+  </style>
+
+   <script src="node_modules/jquery/dist/jquery.min.js"></script>
+   <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+   
+   <!-- <script type="text/javascript" src="../libs-frontend-unitcombobox/dist/js/unitComboBox.min.js"></script>  -->
+   <script type="text/javascript" src="src/js/unitData.js"></script>
+   
+   <script type="text/javascript" src="../number-formatter/dist/cosmatt-number-formatter.js"></script>
+   <script type="text/javascript" src="src/js/unitLabelControl.js"></script>
+   <script type="text/javascript" src="src/js/unitConverter.js"></script> 
+   
+
+</head>
+
+<body>
+<div class="unitDropDownTime"></div>
+<script>
+  $(".unitDropDownTime").unitsLabelControl({
+      "unitType" : "INERTIA",
+      "unit" : "kilogramcentimetersquare",
+      "value" : "0.1",     
+       callBackFn : function(){
+        console.log("Selected Unit :",this.unit);
+        console.log("SI Value:",this.SIValue);      
+      }
+  });
+ //$(".unitDropDownTime").data('unitsComboBox').setDropBoxItem("poundfeetsecondsquare");
+ //$(".unitDropDownTime").data('unitsComboBox').setTextBoxValue("25");
+</script>
+</body>
+</html>

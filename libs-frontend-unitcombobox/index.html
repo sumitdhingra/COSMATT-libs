@@ -1,0 +1,74 @@
+<html>
+<head>
+
+  <title>Cosmatt</title>  
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">  
+  <link rel="stylesheet" type="text/css" href="src/lib/jquery.spinner/dist/css/bootstrap-spinner.css">
+ 
+  <link rel="stylesheet" type="text/css" href="src/css/unitComboBox.css">
+  <style type="text/css">
+    .unitDropDownTime{
+         width: 280px;
+         height: 60px;
+         position: absolute;
+         left: 260px;
+         top: 50px;
+     }
+  </style>
+
+   <script src="node_modules/jquery/dist/jquery.min.js"></script>
+   <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+   
+   <!-- <script type="text/javascript" src="../libs-frontend-unitcombobox/dist/js/unitComboBox.min.js"></script>  -->
+   <script type="text/javascript" src="src/js/unitData.js"></script>
+
+   <script type="text/javascript" src="src/lib/jquery.spinner/dist/js/jquery.spinner.js"></script>
+   
+   <script type="text/javascript" src="../number-formatter/dist/cosmatt-number-formatter.js"></script>
+   <script type="text/javascript" src="src/js/unitComboBox.js"></script>
+   <script type="text/javascript" src="src/js/unitConverter.js"></script> 
+   
+
+</head>
+
+<body>
+<div class="unitDropDownTime"></div>
+<script>
+  $(".unitDropDownTime").unitsComboBox({  
+     
+      "unitType" : "ANGULARDISTANCE",
+      "unit" : "revolution",
+      "value" : "20",
+      'min':'1',      
+      "step":"1",
+      "dataRule":"currency",
+      "comboBoxWidthRatio" : {"textBox" : "50%","comboBox" : "50%"},
+      "showComboBoxOnly":"false", 
+      "enable": {"textbox" : "true","comboBox" : "true" },    
+       callBackFn : function(){
+        console.log("Selected Unit :",this.unit);
+        console.log("SI Value:",this.SIValue);      
+      }
+  });
+
+//$(".unitDropDownTime").data('unitsComboBox').setSIValue("126");
+
+
+ //$(".unitDropDownTime").data('unitsComboBox').setDropBoxItem("poundfeetsecondsquare");
+  /*$(".unitDropDownTime").data('unitsComboBox').update({
+     "show" : "true",
+     "enable": {"textbox" : "true","comboBox" : "true" }
+  });*/
+ 
+  /*var SIValue = $(".unitDropDownTime").data('unitsComboBox').getSIValue();
+  console.log("SI Value :",SIValue);*/
+
+  /*var conversionFact = $(".unitDropDownTime").data('unitsComboBox').getConversionFactor();
+  console.log("conversionFact :",conversionFact);*/
+
+ // $(".unitDropDownTime").data('unitsComboBox').setTextBoxValue("25");
+</script>
+</body>
+</html>

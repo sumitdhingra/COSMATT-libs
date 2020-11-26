@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="bower_components/tether/dist/css/tether.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <!--<link rel="stylesheet" href="../libs-frontend-motionprofile/dist/css/motionProfile.min.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="../libs/chosen/css/chosen.css"> -->
+    <link rel="stylesheet" type="text/css" href="../libs-frontend-unitcombobox/dist/css/unitComboBox.min.css">
+    <link rel="stylesheet" href="src/css/libs-frontend-spreadSheet.css">
+    <link rel="stylesheet" media="screen" href="bower_components/handsontable-pro/dist/handsontable.full.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="spreadSheet" unselectable="on" class="unselectable"></div>
+    </div>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/tether/dist/js/tether.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- <script type="text/javascript" src="../libs/chosen/js/chosen.jquery.min.js"></script> -->
+    <script type="text/javascript" src="../libs-frontend-unitcombobox/dist/js/unitComboBox.js"></script>
+    <script type="text/javascript" src="../libs-frontend-unitcombobox/src/js/unitConverter.js"></script>
+    <script src="src/js/libs-frontend-spreadSheet.js"></script>
+    <script src="bower_components/flot/jquery.flot.js"></script>
+    <script src="bower_components/flot/jquery.flot.resize.js"></script>
+    <script src="bower_components/flot-axislabels/jquery.flot.axislabels.js"></script>
+    <script src="bower_components/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+    <!--<script src="../libs-frontend-motionprofile/dist/js/motionProfile.min.js"></script> -->
+    <script src="bower_components/handsontable-pro/dist/handsontable.full.js"></script>
+    <script>
+        let data = [{
+            "columnTitle": "Initial Velocity (u)",
+            "unitType": "ANGULARVELOCITY",
+            "defSelectedUnit": 2,
+            "readOnly": false,
+            "dataType": "numeric",
+            "fieldType": "value",
+            "colData": [{
+                "value": 0
+            }, {
+                "value": 20
+            }, {
+                "value": 20
+            }, {
+                "value": 0
+            }]
+        }, {
+            "columnTitle": "Final Velocity (v)",
+            "unitType": "ANGULARVELOCITY",
+            "defSelectedUnit": 2,
+            "readOnly": false,
+            "dataType": "numeric",
+            "fieldType": "value",
+            "colData": [{
+                "value": 20
+            }, {
+                "value": 20
+            }, {
+                "value": 0
+            }, {
+                "value": 0
+            }]
+        }, {
+            "columnTitle": "Acceleration (a)",
+            "unitType": "ANGULARACCELERATION",
+            "defSelectedUnit": 2,
+            "readOnly": true,
+            "dataType": "numeric",
+            "fieldType": "formula",
+            "decimalPlaces": 2,
+            "tooltip": {
+                "text": "FInal Velocity (v) - Initial Velocity (u) <hr /> Segment Duration (t)",
+                "position": "right"
+            },
+            "colData": [{
+                "value": "=(B1-A1)/(D1)"
+            }, {
+                "value": "=(B2-A2)/(D2)"
+            }, {
+                "value": "=(B3-A3)/(D3)"
+            }, {
+                "value": "=(B4-A4)/(D4)"
+            }]
+        }, {
+            "columnTitle": "Segment duration (t)",
+            "unitType": "TIME",
+            "defSelectedUnit": 0,
+            "readOnly": false,
+            "dataType": "numeric",
+            "fieldType": "value",
+            "decimalPlaces": 3,
+            "colData": [{
+                "value": 0.09
+            }, {
+                "value": 0.075
+            }, {
+                "value": 0.085
+            }, {
+                "value": 0.05
+            }]
+        }, {
+            "columnTitle": "Distance travelled (s)",
+            "unitType": "ANGULARDISTANCE",
+            "defSelectedUnit": 2,
+            "readOnly": true,
+            "dataType": "numeric",
+            "fieldType": "formula",
+            "decimalPlaces": 2,
+            "tooltip": {
+                "text": "(Initial Velocity (u) + FInal Velocity (v)) <br /> * Segment Duration (t) / 2",
+                "position": "right"
+            },
+            "colData": [{
+                "value": "=(A1+B1)*D1/2"
+            }, {
+                "value": "=(A2+B2)*D2/2"
+            }, {
+                "value": "=(A3+B3)*D3/2"
+            }, {
+                "value": "=(A4+B4)*D4/2"
+            }]
+        }];
+
+        $("#spreadSheet").spreadSheet({
+            tableInput: data,
+            evaluateFormulas: true,
+            // showGraph: true,
+            manualColumnResize: false
+        });
+    </script>
+</body>
+
+</html>

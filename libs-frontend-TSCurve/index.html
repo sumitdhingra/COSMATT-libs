@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8" /> 
+
+<link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="node_modules/jquery.spinner/dist/css/bootstrap-spinner.css"> -->
+<link rel="stylesheet" href="node_modules/bootstrap-slider/dist/css/bootstrap-slider.css">
+<link rel="stylesheet" href="src/js/Foliojs/dist/css/Folio.css">
+<link rel="stylesheet" type="text/css" href="../libs-frontend-unitLabelControl/dist/css/unitLabelControl.min.css">
+<link rel="stylesheet" type="text/css" href="../libs-frontend-unitcombobox/dist/css/unitComboBox.min.css">
+<link rel="stylesheet" type="text/css" href="src/js/malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.css">
+<link rel="stylesheet" href="src/css/libs-frontend-TSCurve.css">
+<script type="text/javascript" src="../number-formatter/dist/cosmatt-number-formatter.js"></script>
+
+
+  
+
+
+  <style>
+    #TSCurveArea {
+      width: 100%;
+      height: 100%;
+      margin: 0 auto;
+    }
+    
+    html {
+      height: 100%;
+    }
+    
+    body {
+      min-height: 100%;
+      position: relative;
+    }
+    
+    .container {
+      padding-bottom: 60px;
+      width: 80%;
+    }
+    
+    .TS-modal-dialog-config {
+      width: 900px;
+      margin: 30px auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div id="TSCurveArea" unselectable="on" class="unselectable"></div>
+    <div class="modal fade text-center" id="theModal">
+      <div class="modal-dialog TS-modal-dialog-config">
+        <div class="modal-content"></div>
+      </div>
+    </div>
+  </div>
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <!-- <script src="node_modules/jquery-ui/jquery-ui.min.js"></script> -->
+  <!-- <script src="../libs-frontend-unitLabelControl/dist/js/unitLabelControl.min.js"></script> -->
+  
+   <script src="../libs-frontend-unitLabelControl/src/js/unitData.js"></script>
+  <script src="../libs-frontend-unitLabelControl/src/js/unitLabelControl.js"></script>
+  <script src="../libs-frontend-unitLabelControl/src/js/unitConverter.js"></script>
+
+  <script src="../libs-frontend-unitcombobox/src/js/unitData.js"></script>
+  <script src="../libs-frontend-unitcombobox/src/js/unitComboBox.js"></script>
+  <script src="../libs-frontend-unitcombobox/src/js/unitConverter.js"></script>
+  <script src="../libs-frontend-unitcombobox/src/lib/jquery.spinner/dist/js/jquery.spinner.js"></script>
+  <script src="src/js/malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.js"></script>
+  <!-- <script src="../libs-frontend-unitcombobox/dist/js/unitComboBox.min.js"></script> -->
+  <script type="text/javascript" src="src/js/Foliojs/dist/js/Folio.js"></script>
+  <script src="src/js/libs-frontend-TSCurve.js"></script>
+  <!-- 	<script src="src/js/Profile-LoadCalculation/AccelDecelSegment.js"></script>
+	<script src="src/js/Profile-LoadCalculation/CruiseSegment.js"></script>
+	<script src="src/js/Profile-LoadCalculation/ProfileIndexModel.js"></script>
+	<script src="src/js/Profile-LoadCalculation/LoadModel.js"></script> -->
+  <script src="node_modules/jquery-flot/jquery.flot.js"></script>
+  <script src="node_modules/jquery-flot/jquery.flot.resize.js"></script>
+  <script src="node_modules/flot-axislabels/jquery.flot.axislabels.js"></script>
+  <script src="node_modules/jquery.flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+<!--   <script src="node_modules/jquery.spinner/dist/js/jquery.spinner.min.js"></script> -->
+  <script src="node_modules/bootstrap-slider/dist/bootstrap-slider.js"></script>
+
+  <script>
+    var $widgetContainer = $("#TSCurveArea");
+    var graphConfigData = {
+      showApplicationPoints: true,
+      // showFeedback: false,
+      motorSelectedIndex: 4,
+      rmsPoints: [125.65, 5.9],
+      peakPoints: [125.65, 9.4],
+      peakAcceData: 1478,
+      rmsAcceData:1097,      
+      quadrant: 1,
+      openAppReqPanel:false,
+      openTransmPanel: false,
+      transmissionRaioVal:1,
+      sliderLimit: {
+        peakMaxSpeed: 1000,
+        peakMaxTorque: 20,
+        rmsMaxSpeed: 1000,
+        rmsMaxTorque: 20,
+        maxTemp: 125,
+        peakAcceMax: 300,
+        rmsAccMax:150,
+        maxAltitude: 10000,
+        maxVoltage: 10,
+        maxTrRatio: 1000
+      },
+      disableControls:{
+        peakTorqueSlider:false,
+        peakSpeedSlider:false,
+        rmsTorqueSlider:false,
+        rmsSpeedSlider:false,
+        tempSlider:false,
+        altitudeSlider:false,
+        transmRatioSlider:false,
+        peakTorqueTextBox:false,
+        peakSpeedTextBox:false,
+        rmsTorqueTextBox:false,
+        rmsSpeedTextBox:false,
+        tempTextBox:false,
+        altitudeTextBox:false,
+        transmRatioTextBox:false
+      },
+      showQuadrantToggle: true,
+      showMotorTsCurve: true,
+      showMotorSelForm: true,
+      showAppPointsForm: true,
+      showEnviorForm: true,
+      showTransmissionForm: true,
+      graphLineColor: {
+        "peakTSCurve": "#FF0808",
+        "contionusTSCurve": "#9ADC54"
+      },
+      motorData: [{
+        "motorPartNo": "CPB-1-01",
+        "drivePartNo": "CB-250",
+        "voltage": "480",
+        "continuousStallTorque": 1.0,
+        "peakStallTorque": 2.70,
+        "rollOffPoint": 2.70,
+        "peakTorqueAtMaxSpeed": 1.8,
+        "continuosTorqueAtMaxSpeed": 0.72,
+        "rollOffSpeed": 3200,
+        "maxSpeed": 4500,
+        "temp": 40,
+        "altitude": 1,
+        "motorInertia":0.00001
+      }, {
+        "motorPartNo": "CPB-1-02",
+        "drivePartNo": "CB-250",
+        "voltage": "480",
+        "continuousStallTorque": 1.7,
+        "peakStallTorque": 4.40,
+        "rollOffPoint": 4.40,
+        "peakTorqueAtMaxSpeed": 2.4,
+        "continuosTorqueAtMaxSpeed": 1.302,
+        "rollOffSpeed": 3300,
+        "maxSpeed": 5000,
+        "temp": 40,
+        "altitude": 1,
+        "motorInertia":0.000015
+      }, {
+        "motorPartNo": "CPB-1-03",
+        "drivePartNo": "CB-250",
+        "voltage": "480",
+        "continuousStallTorque": 2.3,
+        "peakStallTorque": 7.50,
+        "rollOffPoint": 7.50,
+        "peakTorqueAtMaxSpeed": 4.2,
+        "continuosTorqueAtMaxSpeed": 1.71,
+        "rollOffSpeed": 3100,
+        "maxSpeed": 4500,
+        "temp": 40,
+        "altitude": 1,
+        "motorInertia":0.000025
+      }, {
+        "motorPartNo": "CPB-2-01",
+        "drivePartNo": "CB-250",
+        "voltage": "480",
+        "continuousStallTorque": 2.0,
+        "peakStallTorque": 3.8,
+        "rollOffPoint": 3.8,
+        "peakTorqueAtMaxSpeed": 2.0,
+        "continuosTorqueAtMaxSpeed": 1.7,
+        "rollOffSpeed": 4000,
+        "maxSpeed": 6000,
+        "temp": 40,
+        "altitude": 1,
+        "motorInertia":0.000065
+      }, {
+        "motorPartNo": "CPB-2-02",
+        "drivePartNo": "CB-250",
+        "voltage": "480",
+        "continuousStallTorque": 3.4,
+        "peakStallTorque": 7.8,
+        "rollOffPoint": 7.8,
+        "peakTorqueAtMaxSpeed": 4.0,
+        "continuosTorqueAtMaxSpeed": 3.09,
+        "rollOffSpeed": 4400,
+        "maxSpeed": 6000,
+        "temp": 40,
+        "altitude": 1,
+        "motorInertia":0.00008
+      }, {
+        "motorPartNo": "CPB-2-03",
+        "drivePartNo": "CB-250",
+        "voltage": "480",
+        "continuousStallTorque": 4.2,
+        "peakStallTorque": 11.0,
+        "rollOffPoint": 11.0,
+        "peakTorqueAtMaxSpeed": 6.0,
+        "continuosTorqueAtMaxSpeed": 2.9,
+        "rollOffSpeed": 3100,
+        "maxSpeed": 5000,
+        "temp": 40,
+        "altitude": 1,
+        "motorInertia":0.00012
+      }, {
+        "motorPartNo": "CPB-3-01",
+        "drivePartNo": "CB-250",
+        "voltage": "480",
+        "continuousStallTorque": 9.0,
+        "peakStallTorque": 21.0,
+        "rollOffPoint": 21.0,
+        "peakTorqueAtMaxSpeed": 13.0,
+        "continuosTorqueAtMaxSpeed": 6.3,
+        "rollOffSpeed": 3200,
+        "maxSpeed": 4000,
+        "temp": 40,
+        "altitude": 1,
+        "motorInertia":0.0004
+      }, {
+        "motorPartNo": "CPB-3-02",
+        "drivePartNo": "CB-250",
+        "voltage": "480",
+        "continuousStallTorque": 10.0,
+        "peakStallTorque": 29.0,
+        "rollOffPoint": 29.0,
+        "peakTorqueAtMaxSpeed": 16.0,
+        "continuosTorqueAtMaxSpeed": 6.91,
+        "rollOffSpeed": 2500,
+        "maxSpeed": 3500,
+        "temp": 40,
+        "altitude": 1,
+        "motorInertia":0.0006
+      }, {
+        "motorPartNo": "CPB-4-01",
+        "drivePartNo": "CB-250",
+        "voltage": "480",
+        "continuousStallTorque": 20.0,
+        "peakStallTorque": 50.0,
+        "rollOffPoint": 50.0,
+        "peakTorqueAtMaxSpeed": 25.0,
+        "continuosTorqueAtMaxSpeed": 15.3,
+        "rollOffSpeed": 1800,
+        "maxSpeed": 3000,
+        "temp": 40,
+        "altitude": 1,
+        "motorInertia":0.0015
+      }, {
+        "motorPartNo": "CPB-4-02",
+        "drivePartNo": "CB-250",
+        "voltage": "480",
+        "continuousStallTorque": 25.0,
+        "peakStallTorque": 68.0,
+        "rollOffPoint": 68.0,
+        "peakTorqueAtMaxSpeed": 30.0,
+        "continuosTorqueAtMaxSpeed": 17.53,
+        "rollOffSpeed": 1900,
+        "maxSpeed": 3000,
+        "temp": 40,
+        "altitude": 1,
+        "motorInertia":0.0022
+      }, {
+        "motorPartNo": "CPB-4-03",
+        "drivePartNo": "CB-250",
+        "voltage": "480",
+        "continuousStallTorque": 32.0,
+        "peakStallTorque": 75.0,
+        "rollOffPoint": 75.0,
+        "peakTorqueAtMaxSpeed": 32.0,
+        "continuosTorqueAtMaxSpeed": 22.8,
+        "rollOffSpeed": 2100,
+        "maxSpeed": 3000,
+        "temp": 40,
+        "altitude": 1,
+        "motorInertia":0.0029
+      }],
+        "numberFormatterOptions": {
+        "significantDigits": 3,
+        "maxPositiveExponent": 6,
+        "minNegativeExponent": -4,
+      }
+
+    };
+    if (sessionStorage.getItem('obj') != null) {
+      var confUpdates = JSON.parse(sessionStorage.getItem("obj"));
+      for (var updateKey in confUpdates) {
+        graphConfigData[updateKey] = confUpdates[updateKey];
+      }
+    }
+
+    $widgetContainer.TSCurve(graphConfigData);
+
+    // add config button
+    (function() {
+      var $body = $('body');
+      var $editConfigButton = '<div id="editConfigBtnContainer"><button class="btn btn-default editConfigBtn pull-right btn-lg" type="button" href="configWindow.html" data-target="#theModal" data-toggle="modal">Edit Configurations</div>';
+      $body.append($editConfigButton);
+    })();
+  </script>
+</body>
+
+</html>

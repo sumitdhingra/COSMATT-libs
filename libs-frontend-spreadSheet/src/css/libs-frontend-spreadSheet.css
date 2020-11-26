@@ -1,0 +1,95 @@
+#spread-sheet-container #handsontable-container {
+    margin: 30px 0px;
+}
+
+.tooltip-inner {
+    white-space: nowrap;
+    max-width: 100%;
+    padding: 8px 10px;
+}
+
+.tooltip-inner hr {
+    margin: 0;
+    border-top: 1px solid white;
+}
+
+.flotTipBlack {
+    padding: 4px 10px !important;
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    border: solid 1px #000 !important;
+    z-index: 100 !important;
+    font-size: 12px !important;
+    color: #fff !important;
+    -webkit-border-radius: 3px !important;
+    -moz-border-radius: 3px !important;
+    border-radius: 3px !important;
+}
+
+#spread-sheet-container #handsontable-container .handsontable .changeType {
+    float: none;
+}
+
+.changeType {
+    border: 1px solid #bbb;
+    color: #bbb;
+    background: #eee;
+    border-radius: 2px;
+    padding: 2px;
+    font-size: 9px;
+    float: right;
+    line-height: 9px;
+    margin: 3px 3px 0 0;
+}
+
+.changeType:hover {
+    border: 1px solid #777;
+    color: #777;
+    cursor: pointer;
+}
+
+.changeType.pressed {
+    background-color: #999;
+}
+
+.changeTypeMenu {
+    position: absolute;
+    border: 1px solid #ccc;
+    margin-top: 18px;
+    box-shadow: 0 1px 3px -1px #323232;
+    background: white;
+    padding: 0;
+    font-size: 13px;
+    display: none;
+    z-index: 10;
+}
+
+.changeTypeMenu li {
+    text-align: left;
+    list-style: none;
+    padding: 2px 20px;
+    cursor: pointer;
+    margin-bottom: 0;
+}
+
+.changeTypeMenu li.active:before {
+    font-size: 12px;
+    content: "\2714";
+    margin-left: -15px;
+    margin-right: 5px;
+}
+
+.changeTypeMenu li:hover {
+    background: #eee;
+}
+
+
+/*#spread-sheet-container .htDimmed {
+    background-color: #f3f3f3 !important;
+    color: black !important;
+}*/
+
+.col-unitdropdown-label {
+    color: #d9534f;
+    margin-top: 5px;
+    display: inline-block;
+}

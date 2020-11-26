@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    .IC-modal-dialog-config .separateContainer {
+      display: none;
+      margin-top: 10px;
+      margin-left: 15px;
+    }
+    .IC-modal-dialog-config .modal-header{
+      display: block;
+    }
+    .IC-modal-dialog-config .modal-header label,h4{
+      text-align: left !important;
+    }
+    .IC-modal-dialog-config .panel-footer{
+      padding: 20px;
+    }
+    .IC-modal-dialog-config .bottom-buttons{
+      display: unset!important;
+    }
+    .IC-modal-dialog-config .configContainer .row {
+      text-align: left;
+      padding: 15px;
+    }
+    
+    .IC-modal-dialog-config .configContainer label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: normal;
+    }
+    
+    .IC-modal-dialog-config .configContainer .label-inline label {
+      display: inline-block;
+    }
+    
+    .IC-modal-dialog-config .modal-body {
+      height: 400px;
+      overflow-y: scroll;
+    }
+    
+    .IC-modal-dialog-config .modal-header .closeButton {
+      margin-top: -25px;
+      text-align: right;
+      float: right;
+    }
+    
+    .IC-modal-dialog-config .okButton {
+      margin-right: 10px;
+    }
+    
+    .IC-modal-dialog-config .headerbg {
+      background-color: #f5f5f5;
+    }
+    
+    .IC-modal-dialog-config .text-right {
+      text-align: right;
+    }
+    
+    .IC-modal-dialog-config .text-center {
+      font-size: 18px;
+    }
+    
+    .IC-modal-dialog-config .chkGrp {
+      margin-left: 15px;
+      margin-top: 15px;
+    }
+    
+    .IC-modal-dialog-config .header-text {
+      font-weight: bold;
+    }
+    
+    .IC-modal-dialog-config .modal-title {
+      font-weight: bold;
+    }
+    
+    .IC-modal-dialog-config .modal-title1 {
+      font-size: 15px;
+      font-weight: bold;
+      margin-left: 15px;
+      margin-top: 10px;
+    }
+    
+    
+    .IC-modal-dialog-config .footerText {
+      text-align: left;
+      font-size: 14px;
+    }
+    
+    .IC-modal-dialog-config .noteText {
+      font-weight: bold;
+    }
+    
+    .IC-modal-dialog-config .bottom-buttons {
+      /*display: flex;
+      justify-content: space-between;*/
+    }
+    .IC-modal-dialog-config panel-footer{
+      padding: 10px 15px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    }
+
+    .fade.in {
+    opacity: 1;
+    }
+    .modal.in .modal-dialog {
+      -webkit-transform: translate(0, 0);
+      -o-transform: translate(0, 0);
+      transform: translate(0, 0);
+    }
+    .modal-backdrop.in {
+      opacity: 0.5;
+    }
+    .modal-backdrop{
+      position: relative;
+    }
+
+  </style>
+  <script type="text/javascript">
+  
+    if(!configData){
+      var configData = {
+      ViewSettings:{
+        DisplayShapeSelector: false,
+        ShowTotalInertia: false
+      },
+      SelectedShape:0,
+      Shapes:[{
+              ShapeInfo: {
+                Type: "SolidCylinder",
+                Name: "Solid Cylinder",
+                Radius: 0.001,
+                Mass: 19,
+                Material: "Steel (AISI 1020)",
+                Height: 0.001,
+                AxisofRotation:"X",
+                MassOrDensity:"Density",
+                FormulaString:"I = \\frac{1}{2}{M \\left(\\frac{D}{2} \\right)^2}"
+              },
+          InclusionMode:"+"
+          }]
+    };
+  }
+
+
+  
+ 	var HollowCylinderArr = [ 
+          {
+            ShapeInfo: {
+              Type: "HollowCylinder",
+              Name: "Hollow Cylinder",
+              InnerRadius: 0.0005,
+              OuterRadius: 0.001,
+              Mass: 19,
+              Material: "Steel (AISI 1020)",
+              Height: 0.001,
+              AxisofRotation:"X",
+              MassOrDensity:"Density",
+              FormulaString:"I = \\frac{1}{2}{M \\left(\\left(\\frac{D_{1}}{2} \\right)^2 + \\left(\\frac{D_{2}}{2} \\right)^2\\right)}"
+            },
+         InclusionMode:"+"
+        }
+	];
+
+  var ComplexShapeArr = [ 
+          {
+            ShapeInfo: {
+              Type: "SolidCylinder",
+              Name: "Solid Cylinder",
+              Radius: 0.001,
+              Mass: 19,
+              Material: "Aluminium (1060 Alloy)",
+              Height: 0.001,
+              AxisofRotation:"X",
+              MassOrDensity:"Density",
+              FormulaString:"I = \\frac{1}{2}{M \\left(\\frac{D}{2} \\right)^2}"
+            },
+         InclusionMode:"+"
+        },
+        {
+            ShapeInfo: {
+              Type: "HollowCylinder",
+              Name: "Hollow Cylinder",
+              InnerRadius: 0.0005,
+              OuterRadius: 0.001,
+              Mass: 19,
+              Material: "Aluminium (1060 Alloy)",
+              Height: 0.001,
+              AxisofRotation:"X",
+              MassOrDensity:"Density",
+              FormulaString:"I = \\frac{1}{2}{M \\left(\\left(\\frac{D_{1}}{2} \\right)^2 + \\left(\\frac{D_{2}}{2} \\right)^2\\right)}"
+            },
+         InclusionMode:"+"
+        }
+	];
+
+	var SolidCylinderArr = [{
+            ShapeInfo: {
+              Type: "SolidCylinder",
+              Name: "Solid Cylinder",
+              Radius:0.001,
+              Mass: 19,
+              Material: "Steel (AISI 1020)",
+              Height: 0.001,
+              AxisofRotation:"X",
+              MassOrDensity:"Density",
+              FormulaString:"I = \\frac{1}{2}{M \\left(\\frac{D}{2} \\right)^2}"
+            },
+         InclusionMode:"+"
+        }];
+
+		$("#shapeGrp").find('input:radio').change(function() {
+      if ($(this).is(':checked') && $(this).val()=="SolidCylinder") {
+        settings.Shapes = SolidCylinderArr;
+      } else if ($(this).is(':checked') && $(this).val()=="ComplexShape") {
+        settings.Shapes = ComplexShapeArr;
+      } else if ($(this).is(':checked') && $(this).val()=="HollowCylinder") {
+        settings.Shapes = HollowCylinderArr;
+      }
+		});
+
+    if(sessionStorage.obj)
+    {
+      if(JSON.parse(sessionStorage.obj).Shapes.length>1){
+        $("#shapeGrp").find('#complexShape').prop('checked','checked');
+      }
+      else if(JSON.parse(sessionStorage.obj).Shapes[0].ShapeInfo.Type=="SolidCylinder"){
+          $("#shapeGrp").find('#solidCylinder').prop('checked','checked');
+        }
+        else if(JSON.parse(sessionStorage.obj).Shapes[0].ShapeInfo.Type=="HollowCylinder"){
+          $("#shapeGrp").find('#hollowCylinder').prop('checked','checked');
+        } 
+    } 
+    else if(settings)
+    {
+      if(settings.Shapes.length>1){
+        $("#shapeGrp").find('#complexShape').prop('checked','checked');
+      }
+      else if(settings.Shapes[0].ShapeInfo.Type=="SolidCylinder"){
+          $("#shapeGrp").find('#solidCylinder').prop('checked','checked');
+        }
+        else if(settings.Shapes[0].ShapeInfo.Type=="HollowCylinder"){
+          $("#shapeGrp").find('#hollowCylinder').prop('checked','checked');
+        } 
+    }
+    $("#okButton").click(function() {
+      var url = '';
+      sessionStorage.clear();
+      sessionStorage.setItem("obj", JSON.stringify(settings));
+      window.location.href = url;
+    });
+
+  </script>
+</head>
+
+<body>
+  <div class="modal-header headerbg">
+    <div class="text-center">
+      <h3> Inertia Calculator Configurations </h3>
+    </div>
+  </div>
+  <div class="modal-body configContainer" id="configContainer">
+    <div class="section1 modal-header">
+      <h4 class="modal-title"> Choose a Shape</h4>
+      <div id="shapeGrp" class="chkGrp">
+        <label><input type="radio" id="solidCylinder" name='calcMode' value="SolidCylinder" class="profile">&nbsp;Solid Cylinder</label>
+        <label><input type="radio" id="hollowCylinder" name='calcMode' value="HollowCylinder" class="profile">&nbsp;Hollow Cylinder</label>
+        <label><input type="radio" id="complexShape" name='calcMode' value="ComplexShape" class="profile">&nbsp;Complex Shape</label>
+      </div>
+    </div> 
+  </div>
+  <div class="panel-footer">
+    <div class="footerText"><span class="noteText">Note:</span> This dialog allows configuring Inertia Calculator via UI. These configurations will eventually be provided in the Cosmatt Course via JSON input.</div>
+    <div class="bottom-buttons">
+      <div class="text-right">
+        <button name="Ok" value="Ok" id="okButton" class="btn btn-primary">Ok</button>
+        <button type="button" class="closeButton btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>

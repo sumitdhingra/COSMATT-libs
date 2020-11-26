@@ -1,0 +1,83 @@
+1. global Function Added to Jquery: spreadSheet
+
+2. Example:
+	$("#spreadSheet").spreadSheet({
+      columnData: columnData,
+      tableData: data,
+      evaluateFormulas: true,
+      tooltipData: tooltipData
+    });
+
+3. Options:
+	a. columnData:
+		Array of JSONS. Elements in Arrays are equal to numbers of columns. e.g.
+		Each element JSON will have following keys
+			i. title: accepts html as input. Value to be displayed in header
+			ii. unitType: accept string as input from predefined list. Based on type, a unit dropdown will be populated in last row of header
+			iii. selectedUnit: unit which is shown selected in dropdown. valid only if unitType is defined and valid value, i.e. unti dropdown is present
+			iv. readOnly: determines whether values in column can be edited or not.
+			v. dataType: accept string as input from predefined list. Data can be formatted as currency, numbers using this option.
+			vi. decimalPlaces: number of decimal places to be shown. This is valid only if dataType is set to numeric.
+			vii. hideColumn: whether to show or hide the column
+		Example:
+			[
+		      {
+		        title: 'Initial Velocity (u)<br>(rev/sec)',
+		        unitType: 'VELOCITY',
+		        selectedUnit: 'rev/sec',
+		        readOnly: false,
+		        dataType: 'numeric',
+		        hideColumn: false
+		      },
+		      {
+		        title: 'Final Velocity (v)<br>(rev/sec)',
+		        unitType: 'VELOCITY',
+		        selectedUnit: 'rev/sec',
+		        readOnly: false,
+		        dataType: 'numeric',
+		        hideColumn: false
+		      },
+		      {
+		        title: 'Acceleration (a)<br>(rev/sec<sup>2</sup>)',
+		        unitType: 'VELOCITY',
+		        selectedUnit: 'rev/sec',
+		        readOnly: true,
+		        decimalPlaces: 2,
+		        dataType: 'numeric',
+		        hideColumn: false
+		      },
+		      {
+		        title: 'Segment duration (t)<br>(sec)',
+		        unitType: 'VELOCITY',
+		        selectedUnit: 'rev/sec',
+		        readOnly: false,
+		        decimalPlaces: 3,
+		        dataType: 'numeric',
+		        hideColumn: false
+		      },
+		      {
+		        title: 'Distance travelled (s)<br>(rev)',
+		        unitType: 'VELOCITY',
+		        selectedUnit: 'rev/sec',
+		        readOnly: true,
+		        decimalPlaces: 2,
+		        dataType: 'numeric',
+		        hideColumn: false
+		      }
+		    ];
+
+	b. tableData:
+		Array of arrays. each individual array will be having values to be displayed in grid row wise. Element in individual array be equal to number of columns. Total number of individual array will be equal to total number of rows. Cell values can be numbers, strings, or cell formulas. 
+		Example:
+			[
+		      [0, 20, '=(B1-A1)/(D1)', 0.09, '=(A1+B1)*D1/2'],
+		      [20, 20, '=(B2-A2)/(D2)', 0.075, '=(A2+B2)*D2/2'],
+		      [20, 0, '=(B3-A3)/(D3)', 0.085, '=(A3+B3)*D3/2'],
+		      [0, 0, '=(B4-A4)/(D4)', 0.05, '=(A4+B4)*D4/2']
+		    ]
+
+	c. evaluateFormulas: 
+		Boolean value from true or false. By default value will be false and any formula written in tableData will be displayed as string. If the value is set to true, formulas will be calculated and results will be displayed
+
+	d. tooltipData:
+		

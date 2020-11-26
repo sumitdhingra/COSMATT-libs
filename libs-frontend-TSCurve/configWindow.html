@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<style>
+		.TS-modal-dialog-config .row {
+			text-align: left;
+			padding: 15px;
+		}
+		
+		.TS-modal-dialog-config label {
+			padding: 10px 10px 0 10px;
+			font-weight: normal;
+		}
+		
+		.TS-modal-dialog-config .modal-body {
+			height: 400px;
+			overflow-y: scroll;
+			padding-bottom: 0;
+		}
+		
+		.TS-modal-dialog-config .modal-header .closeButton {
+			margin-top: -25px;
+			text-align: right;
+			float: right;
+		}
+		
+		.TS-modal-dialog-config .okButton {
+			margin-right: 10px;
+		}
+		
+		.TS-modal-dialog-config .headerbg {
+			background-color: #f5f5f5;
+		}
+		
+		.TS-modal-dialog-config .text-right {
+			text-align: right;
+		}
+		
+		.TS-modal-dialog-config .text-center {
+			font-size: 18px;
+		}
+		
+		.TS-modal-dialog-config .chkGrp {
+			margin-top: 10px;
+		}
+		
+		.TS-modal-dialog-config .modal-title {
+			font-weight: bold;
+		}
+		
+		.TS-modal-dialog-config .footerText {
+			text-align: left;
+			font-size: 14px;
+		}
+		
+		.TS-modal-dialog-config .noteText {
+			font-weight: bold;
+		}
+		
+		.TS-modal-dialog-config .lblDisplay {
+			display: inline-block;
+		}
+		
+		.TS-modal-dialog-config .txtBoxStyle {
+			width: 100px;
+			height: 25px;
+		}
+		
+		.TS-modal-dialog-config .editTextBox {
+			width: 15%;
+			display: inline-block;
+		}
+		
+		.TS-modal-dialog-config .pkPonitsContainer {
+			padding: 12px;
+		}
+		
+		.TS-modal-dialog-config .appPointsLabel {}
+		
+		.TS-modal-dialog-config .btn-primary {
+			background-color: #5bc0de;
+			border-color: #5bc0de;
+			color: #fff;
+		}
+		
+		.TS-modal-dialog-config #TSQuadrant {}
+		
+		.TS-modal-dialog-config .appPointsContainer {
+			display: block;
+			margin-left: 20px;
+			margin-top: 0px;
+		}
+		
+		.TS-modal-dialog-config .showhideQuadrant,
+		.TS-modal-dialog-config .appPointsLabel,
+		.TS-modal-dialog-config .showHideCurve,
+		.TS-modal-dialog-config .motorSelection,
+		.TS-modal-dialog-config .appTorSpeed,
+		.TS-modal-dialog-config .enviroSelection,
+		.TS-modal-dialog-config .transmissionSelection,
+		.TS-modal-dialog-config .motorName,
+    .TS-modal-dialog-config .peakTSLineColor,
+    .TS-modal-dialog-config .contTSLineColor {
+			font-size: 16px;
+		}
+		
+		.TS-modal-dialog-config .appPointsContainer .level2Heading {
+			padding: 10px 10px 0 10px;
+		}
+		
+		.TS-modal-dialog-config .appPointsContainer .level2text {
+			font-size: 12px;
+		}
+		
+		.TS-modal-dialog-config .config-Icon {
+			position: absolute;
+			right: 20px;
+			top: 10px;
+		}
+		
+		.TS-modal-dialog-config .sliderMaxTorque {
+			margin-left: -1;
+		}
+		
+		.TS-modal-dialog-config .sliderMaxVoltage {
+			margin-left: 32px;
+		}
+		
+		.TS-modal-dialog-config .SliderInputsContainer {
+			padding: 10px 0px 0 10px;
+		}
+		
+		.TS-modal-dialog-config .maxSpeedLbl {
+			padding-left: 25px;
+		}
+		
+		.TS-modal-dialog-config .maxAltiuLbl {
+			padding-left: 36px;
+		}
+		
+		.TS-modal-dialog-config .maxAltiutext {
+			margin-left: 22px;
+		}
+		
+		.TS-modal-dialog-config .maxRatioLbl {
+			padding-left: 19px;
+		}
+		
+		.TS-modal-dialog-config .sliderMaxTemp {
+			margin-left: -2px;
+		}
+		
+		.TS-modal-dialog-config .sliderTextBox {
+			margin-left: -4px;
+		}
+		
+		.TS-modal-dialog-config .SliderTitle {
+			font-size: 16px;
+			padding: 10px 10px 0 10px;
+			font-weight: normal;
+		}
+		
+		.TS-modal-dialog-config .minSpeedtext {
+			margin-left: 3px;
+		}
+		
+		.TS-modal-dialog-config .maxTorqueLbl {
+			margin-left: 0;
+		}
+		
+		.TS-modal-dialog-config .nextLineStyle {
+			margin-top: 10px;
+		}
+		
+		.TS-modal-dialog-config .motorDataContainer {
+			padding: 10px 10px 0 10px;
+		}
+		
+		.TS-modal-dialog-config .motorDataTable {
+			margin-top: 10px;
+		}
+		
+		.TS-modal-dialog-config .motorDataTable > thead > tr > th {
+			vertical-align: initial;
+		}
+		
+		.TS-modal-dialog-config .radiobutoonContainer {
+			padding: 10px 10px 0 10px;
+		}
+		
+		.TS-modal-dialog-config .tableNoteText {
+			margin-left: 10px;
+			margin-top: 5px;
+			margin-bottom: -17px;
+		}
+		
+		.TS-modal-dialog-config .maxSpeedtext {
+			margin-left: 4px;
+		}
+		
+		.TS-modal-dialog-config .maxRmsSpeedtext {
+			margin-left: 4px;
+		}
+		
+		.TS-modal-dialog-config .minRmsSpeedtext {
+			margin-left: 3px;
+		}
+		
+		.TS-modal-dialog-config .torqueUnitW {
+			width: 73px;
+		}
+  .TS-modal-dialog-config .exportDataButton{
+      color: #fff;
+      padding: 10px;
+      text-decoration: none;
+    }
+    .TS-modal-dialog-config .footerLeftSection{       
+        width: 51%;
+        display: inline-block;
+        text-align: left;
+        margin-top: 15px;
+    }
+    .TS-modal-dialog-config .footerRightSection{
+        width: 48%;      
+        display: inline-block;
+        text-align: right;
+    }
+    .TS-modal-dialog-config .colorBoxInput{
+      width: 5%;
+      display: inline-block;
+    }
+	</style>
+	<script type="text/javascript">
+		var TS_ConfigData = {
+			 showApplicationPoints: true,
+      // showFeedback: false,
+      motorSelectedIndex: 4,
+      rmsPoints: [125, 5.9],
+      peakPoints: [125, 9.4],
+      peakAcceData: 1395,
+      rmsAcceData:1097,      
+      quadrant: 1,
+      transmissionRaioVal:1,
+      sliderLimit: {
+        peakMaxSpeed: 1000,
+        peakMaxTorque: 20,
+        rmsMaxSpeed: 1000,
+        rmsMaxTorque: 20,
+        maxTemp: 125,
+        peakAcceMax: 300,
+        rmsAccMax:150,
+        maxAltitude: 10000,
+        maxVoltage: 10,
+        maxTrRatio: 100
+      },
+      disableControls:{
+        peakTorqueSlider:false,
+        peakSpeedSlider:false,
+        rmsTorqueSlider:false,
+        rmsSpeedSlider:false,
+        tempSlider:false,
+        altitudeSlider:false,
+        transmRatioSlider:false,
+        peakTorqueTextBox:false,
+        peakSpeedTextBox:false,
+        rmsTorqueTextBox:false,
+        rmsSpeedTextBox:false,
+        tempTextBox:false,
+        altitudeTextBox:false,
+        transmRatioTextBox:false
+      },
+      showQuadrantToggle: true,
+      showMotorTsCurve: true,
+      showMotorSelForm: true,
+      showAppPointsForm: true,
+      showEnviorForm: true,
+      showTransmissionForm: true,
+      graphLineColor: {
+        "peakTSCurve": "#FF0808",
+        "contionusTSCurve": "#9ADC54"
+      },
+      motorData: [{
+        "motorPartNo": "CPA-1-01",
+        "drivePartNo": "CA-050",
+        "voltage": "300",
+        "continuousStallTorque": 1.0,
+        "peakStallTorque": 2.1,
+        "rollOffPoint": 2.1,
+        "peakTorqueAtMaxSpeed": 1.3,
+        "continuosTorqueAtMaxSpeed": 0.75,
+        "rollOffSpeed": 314.1592,
+        "maxSpeed": 471.2388,
+        "temp": 40,
+        "altitude": 1,
+        "motorInertia":0.00001
+      }, {
+        "motorPartNo": "CPA-1-02",
+        "drivePartNo": "CA-050",
+        "voltage": "240",
+        "continuousStallTorque": 1.7,
+        "peakStallTorque": 4.4,
+        "rollOffPoint": 4.4,
+        "peakTorqueAtMaxSpeed": 3.3,
+        "continuosTorqueAtMaxSpeed": 1.3,
+        "rollOffSpeed": 356.0471,
+        "maxSpeed": 523.5987,
+        "temp": 40,
+        "altitude": 1,
+        "motorInertia":0.000015
+      }, {
+        "motorPartNo": "CPA-1-03",
+        "drivePartNo": "CA-050",
+        "voltage": "240",
+        "continuousStallTorque": 2.3,
+        "peakStallTorque": 7.5,
+        "rollOffPoint": 7.5,
+        "peakTorqueAtMaxSpeed": 4.5,
+        "continuosTorqueAtMaxSpeed": 1.65,
+        "rollOffSpeed": 335.1032,
+        "maxSpeed": 471.2388,
+        "temp": 40,
+        "altitude": 1,
+        "motorInertia":0.000025
+      }, {
+        "motorPartNo": "CPA-2-01",
+        "drivePartNo": "CA-050",
+        "voltage": "240",
+        "continuousStallTorque": 2.0,
+        "peakStallTorque": 3.8,
+        "rollOffPoint": 3.8,
+        "peakTorqueAtMaxSpeed": 2.5,
+        "continuosTorqueAtMaxSpeed": 1.8,
+        "rollOffSpeed": 460.7669,
+        "maxSpeed": 628.3185,
+        "temp": 40,
+        "altitude": 1,
+        "motorInertia":0.000065
+      }, {
+        "motorPartNo": "CPA-2-02",
+        "drivePartNo": "CA-050",
+        "voltage": "240",
+        "continuousStallTorque": 3.3,
+        "peakStallTorque": 7.8,
+        "rollOffPoint": 7.8,
+        "peakTorqueAtMaxSpeed": 4.0,
+        "continuosTorqueAtMaxSpeed": 3.14,
+        "rollOffSpeed": 314.1592,
+        "maxSpeed": 523.5987,
+        "temp": 40,
+        "altitude": 1,
+        "motorInertia":0.00008
+      }, {
+        "motorPartNo": "CPA-2-03",
+        "drivePartNo": "CA-050",
+        "voltage": "240",
+        "continuousStallTorque": 4.2,
+        "peakStallTorque": 11.0,
+        "rollOffPoint": 11.0,
+        "peakTorqueAtMaxSpeed": 7.0,
+        "continuosTorqueAtMaxSpeed": 3.0,
+        "rollOffSpeed": 418.8790,
+        "maxSpeed": 575.9586,
+        "temp": 40,
+        "altitude": 1,
+        "motorInertia":0.00012
+      }, {
+        "motorPartNo": "CPA-3-01",
+        "drivePartNo": "CA-050",
+        "voltage": "240",
+        "continuousStallTorque": 7.8,
+        "peakStallTorque": 21.0,
+        "rollOffPoint": 21.0,
+        "peakTorqueAtMaxSpeed": 11.0,
+        "continuosTorqueAtMaxSpeed": 6.24,
+        "rollOffSpeed": 314.1592,
+        "maxSpeed": 418.8790,
+        "temp": 40,
+        "altitude": 1,
+        "motorInertia":0.0004
+      }, {
+        "motorPartNo": "CPA-3-02",
+        "drivePartNo": "CA-050",
+        "voltage": "240",
+        "continuousStallTorque": 10.0,
+        "peakStallTorque": 27.0,
+        "rollOffPoint": 27.0,
+        "peakTorqueAtMaxSpeed": 13.0,
+        "continuosTorqueAtMaxSpeed": 6.3,
+        "rollOffSpeed": 240.8554,
+        "maxSpeed": 314.1592,
+        "temp": 40,
+        "altitude": 1,
+        "motorInertia":0.00055
+      }, {
+        "motorPartNo": "CPB-1-01",
+        "drivePartNo": "CB-250",
+        "voltage": "480",
+        "continuousStallTorque": 1.0,
+        "peakStallTorque": 2.70,
+        "rollOffPoint": 2.70,
+        "peakTorqueAtMaxSpeed": 1.8,
+        "continuosTorqueAtMaxSpeed": 0.72,
+        "rollOffSpeed": 335.1032,
+        "maxSpeed": 471.2388,
+        "temp": 40,
+        "altitude": 1,
+        "motorInertia":0.00001
+      }, {
+        "motorPartNo": "CPB-1-02",
+        "drivePartNo": "CB-250",
+        "voltage": "480",
+        "continuousStallTorque": 1.7,
+        "peakStallTorque": 4.40,
+        "rollOffPoint": 4.40,
+        "peakTorqueAtMaxSpeed": 2.4,
+        "continuosTorqueAtMaxSpeed": 1.302,
+        "rollOffSpeed": 345.5751,
+        "maxSpeed": 523.5987,
+        "temp": 40,
+        "altitude": 1,
+        "motorInertia":0.000015
+      }, {
+        "motorPartNo": "CPB-1-03",
+        "drivePartNo": "CB-250",
+        "voltage": "480",
+        "continuousStallTorque": 2.3,
+        "peakStallTorque": 7.50,
+        "rollOffPoint": 7.50,
+        "peakTorqueAtMaxSpeed": 4.2,
+        "continuosTorqueAtMaxSpeed": 1.71,
+        "rollOffSpeed": 324.6312,
+        "maxSpeed": 471.2388,
+        "temp": 40,
+        "altitude": 1,
+        "motorInertia":0.000025
+      }, {
+        "motorPartNo": "CPB-2-01",
+        "drivePartNo": "CB-250",
+        "voltage": "480",
+        "continuousStallTorque": 2.0,
+        "peakStallTorque": 3.8,
+        "rollOffPoint": 3.8,
+        "peakTorqueAtMaxSpeed": 2.0,
+        "continuosTorqueAtMaxSpeed": 1.7,
+        "rollOffSpeed": 418.8790,
+        "maxSpeed": 628.3185,
+        "temp": 40,
+        "altitude": 1,
+        "motorInertia":0.000065
+      }, {
+        "motorPartNo": "CPB-2-02",
+        "drivePartNo": "CB-250",
+        "voltage": "480",
+        "continuousStallTorque": 3.4,
+        "peakStallTorque": 7.8,
+        "rollOffPoint": 7.8,
+        "peakTorqueAtMaxSpeed": 4.0,
+        "continuosTorqueAtMaxSpeed": 3.09,
+        "rollOffSpeed": 460.7669,
+        "maxSpeed": 628.3185,
+        "temp": 40,
+        "altitude": 1,
+        "motorInertia":0.00008
+      }, {
+        "motorPartNo": "CPB-2-03",
+        "drivePartNo": "CB-250",
+        "voltage": "480",
+        "continuousStallTorque": 4.2,
+        "peakStallTorque": 11.0,
+        "rollOffPoint": 11.0,
+        "peakTorqueAtMaxSpeed": 6.0,
+        "continuosTorqueAtMaxSpeed": 2.9,
+        "rollOffSpeed": 324.6312,
+        "maxSpeed": 523.5987,
+        "temp": 40,
+        "altitude": 1,
+        "motorInertia":0.00012
+      }, {
+        "motorPartNo": "CPB-3-01",
+        "drivePartNo": "CB-250",
+        "voltage": "480",
+        "continuousStallTorque": 9.0,
+        "peakStallTorque": 21.0,
+        "rollOffPoint": 21.0,
+        "peakTorqueAtMaxSpeed": 13.0,
+        "continuosTorqueAtMaxSpeed": 6.3,
+        "rollOffSpeed": 335.1032,
+        "maxSpeed": 418.8790,
+        "temp": 40,
+        "altitude": 1,
+        "motorInertia":0.0004
+      }, {
+        "motorPartNo": "CPB-3-02",
+        "drivePartNo": "CB-250",
+        "voltage": "480",
+        "continuousStallTorque": 10.0,
+        "peakStallTorque": 29.0,
+        "rollOffPoint": 29.0,
+        "peakTorqueAtMaxSpeed": 16.0,
+        "continuosTorqueAtMaxSpeed": 6.91,
+        "rollOffSpeed": 261.7993,
+        "maxSpeed": 366.5191,
+        "temp": 40,
+        "altitude": 1,
+        "motorInertia":0.0006
+      }, {
+        "motorPartNo": "CPB-4-01",
+        "drivePartNo": "CB-250",
+        "voltage": "480",
+        "continuousStallTorque": 20.0,
+        "peakStallTorque": 50.0,
+        "rollOffPoint": 50.0,
+        "peakTorqueAtMaxSpeed": 25.0,
+        "continuosTorqueAtMaxSpeed": 15.3,
+        "rollOffSpeed": 188.4955,
+        "maxSpeed": 314.1592,
+        "temp": 40,
+        "altitude": 1,
+        "motorInertia":0.0015
+      }, {
+        "motorPartNo": "CPB-4-02",
+        "drivePartNo": "CB-250",
+        "voltage": "480",
+        "continuousStallTorque": 25.0,
+        "peakStallTorque": 68.0,
+        "rollOffPoint": 68.0,
+        "peakTorqueAtMaxSpeed": 30.0,
+        "continuosTorqueAtMaxSpeed": 17.53,
+        "rollOffSpeed": 198.9675,
+        "maxSpeed": 314.1592,
+        "temp": 40,
+        "altitude": 1,
+        "motorInertia":0.0022
+      }, {
+        "motorPartNo": "CPB-4-03",
+        "drivePartNo": "CB-250",
+        "voltage": "480",
+        "continuousStallTorque": 32.0,
+        "peakStallTorque": 75.0,
+        "rollOffPoint": 75.0,
+        "peakTorqueAtMaxSpeed": 32.0,
+        "continuosTorqueAtMaxSpeed": 22.8,
+        "rollOffSpeed": 219.9114,
+        "maxSpeed": 314.1592,
+        "temp": 40,
+        "altitude": 1,
+        "motorInertia":0.0029
+      }]
+    
+		};
+		$.extend(TS_ConfigData, graphConfigData);
+
+		for(var loop = 0; loop < TS_ConfigData.motorData.length; loop++ ){
+			
+			var tableData =  TS_ConfigData.motorData[loop];
+			var tableRow = $('<tr id="motorId'+(loop+1)+'"></tr>')
+			$("#motorDataTable").find('tbody').append(tableRow);
+			var colData = $('<td contenteditable="false">'+(loop + 1)+'</td> <td contenteditable="true">'+tableData.motorPartNo+'</td><td contenteditable="true">'+tableData.motorInertia+'</td><td contenteditable="true">'+tableData.peakStallTorque+'</td><td contenteditable="true">'+tableData.rollOffPoint+'</td><td contenteditable="true">'+tableData.rollOffSpeed+'</td><td contenteditable="true">'+tableData.maxSpeed+'</td><td contenteditable="true">'+tableData.peakTorqueAtMaxSpeed+'</td><td contenteditable="true">'+tableData.continuousStallTorque+'</td><td contenteditable="true">'+tableData.continuosTorqueAtMaxSpeed+'</td>');
+		
+			tableRow.append(colData);
+		}
+		
+
+		$("#TSQuadrantChk").find('input:checkbox').change(function() {
+			if ($(this).is(':checked')) {
+				TS_ConfigData.showQuadrantToggle = true;
+
+			} else {
+				TS_ConfigData.showQuadrantToggle = false;
+
+			}
+
+		});
+		$("#TSQuadrant").find('input:radio').change(function() {
+			if ($(this).is(':checked')) {
+				TS_ConfigData.quadrant = parseInt($(this).val());
+			}
+		});
+
+		$("#TSgrphPoints").find('input:checkbox').change(function() {
+			
+			if ($(this).is(':checked')) {
+				$("#TSgrphPoints").find(".appPointsContainer").show();
+				TS_ConfigData.showApplicationPoints = true;
+				$("#peakSpeed").removeAttr("disabled");
+				$("#peakTorque").removeAttr("disabled");
+				$("#rmsTorque").removeAttr("disabled");
+				$("#rmsAcc").removeAttr("disabled");
+				$("#peakAcc").removeAttr("disabled");
+				//$("#rmsSpeed").removeAttr("disabled");
+				updateAppPointsValues();
+			} else {
+				TS_ConfigData.showApplicationPoints = false;
+				$("#peakSpeed").attr("disabled", true);
+				$("#peakTorque").attr("disabled", true);
+				$("#rmsTorque").attr("disabled", true);
+				$("#rmsAcc").attr("disabled", true);
+				$("#peakAcc").attr("disabled", true);
+				//$("#rmsSpeed").attr("disabled", true);
+			}
+		});
+		$("#showHideCurveId").find('input:checkbox').change(function() {
+			if ($(this).is(':checked')) {
+				TS_ConfigData.showMotorTsCurve = true;
+			} else {
+				TS_ConfigData.showMotorTsCurve = false;
+			}
+
+		});
+
+		$("#motorSelection").find('input:checkbox').change(function() {
+			if ($(this).is(':checked')) {
+				TS_ConfigData.showMotorSelForm = true;
+			} else {
+				TS_ConfigData.showMotorSelForm = false;
+			}
+
+		});
+		$("#appPointsSelection").find('input:checkbox').change(function() {
+			if ($(this).is(':checked')) {
+				TS_ConfigData.showAppPointsForm = true;
+				TS_ConfigData.showApplicationPoints = true;
+			} else {
+				TS_ConfigData.showAppPointsForm = false;
+			}
+
+		});
+		$("#enviormSelection").find('input:checkbox').change(function() {
+			if ($(this).is(':checked')) {
+				TS_ConfigData.showEnviorForm = true;
+			} else {
+				TS_ConfigData.showEnviorForm = false;
+			}
+
+		});
+		$("#transmissionSelection").find('input:checkbox').change(function() {
+			if ($(this).is(':checked')) {
+				TS_ConfigData.showTransmissionForm = true;
+			} else {
+				TS_ConfigData.showTransmissionForm = false;
+			}
+
+		}); 
+    $("#grpLineColor").find("#peakLineColorPicker").change(function(){
+
+        $("#grpLineColor").find("#peakLineColor").val($(this).val());
+    })
+
+    $("#grpLineColor").find("#contLineColorPicker").change(function(){
+
+      $("#grpLineColor").find("#contLineColor").val($(this).val());
+    })
+
+
+		$("#okButton").click(function() {
+			var url = '';
+			sessionStorage.clear();
+			TS_ConfigData.peakPoints[1] = parseFloat($("#peakTorque").val());
+			TS_ConfigData.peakPoints[0] = parseFloat($("#peakSpeed").val());
+
+			TS_ConfigData.rmsPoints[1] = parseFloat($("#rmsTorque").val());
+			//TS_ConfigData.rmsPoints[0] = parseFloat($("#rmsSpeed").val());
+
+
+			TS_ConfigData.peakAcceData = parseFloat($("#peakAcc").val());
+			TS_ConfigData.rmsAcceData = parseFloat($("#rmsAcc").val());
+
+			TS_ConfigData.sliderLimit.peakMaxSpeed = parseInt($("#maxSpeed").val());
+			TS_ConfigData.sliderLimit.peakMaxTorque = parseInt($("#maxTorque").val());
+
+			//TS_ConfigData.sliderLimit.rmsMaxSpeed = parseInt($("#maxRmsSpeed").val());
+			TS_ConfigData.sliderLimit.rmsMaxTorque = parseInt($("#maxRmsTorque").val());
+
+			TS_ConfigData.sliderLimit.maxTemp = parseInt($("#maxTemperature").val());
+			TS_ConfigData.sliderLimit.maxAltitude = parseInt($("#maxAltitude").val());
+
+			TS_ConfigData.sliderLimit.maxVoltage = parseInt($("#maxVoltage").val());
+			TS_ConfigData.sliderLimit.maxTrRatio = parseInt($("#maxTrRatio").val());
+     
+
+	      TS_ConfigData.graphLineColor.peakTSCurve = ($("#grpLineColor").find("#peakLineColor").val());
+	      TS_ConfigData.graphLineColor.contionusTSCurve = ($("#grpLineColor").find("#contLineColor").val());
+			updateMotorData();
+			sessionStorage.setItem("obj", JSON.stringify(TS_ConfigData));
+			window.location.href = url;
+		});
+
+		function updateMotorData() {
+      
+			for (var loop = 1; loop < TS_ConfigData.motorData.length + 1; loop++) {
+				TS_ConfigData.motorData[loop - 1].motorPartNo = $("#motorId" + loop).find('td')[1].innerHTML;
+		        TS_ConfigData.motorData[loop - 1].motorInertia = $("#motorId" + loop).find('td')[2].innerHTML;		       
+				TS_ConfigData.motorData[loop - 1].peakStallTorque = $("#motorId" + loop).find('td')[3].innerHTML;
+				TS_ConfigData.motorData[loop - 1].rollOffPoint = $("#motorId" + loop).find('td')[4].innerHTML;
+				TS_ConfigData.motorData[loop - 1].rollOffSpeed = $("#motorId" + loop).find('td')[5].innerHTML;
+				TS_ConfigData.motorData[loop - 1].maxSpeed = $("#motorId" + loop).find('td')[6].innerHTML;
+				TS_ConfigData.motorData[loop - 1].peakTorqueAtMaxSpeed = $("#motorId" + loop).find('td')[7].innerHTML;
+				TS_ConfigData.motorData[loop - 1].continuousStallTorque = $("#motorId" + loop).find('td')[8].innerHTML;
+				TS_ConfigData.motorData[loop - 1].continuosTorqueAtMaxSpeed = $("#motorId" + loop).find('td')[9].innerHTML;
+			}
+		}
+		if (typeof graphConfigData == 'object') {
+			if (graphConfigData.showQuadrantToggle == true) {
+
+				$("#TSQuadrantChk").find('input:checkbox').attr('checked', true);
+
+				TS_ConfigData.showQuadrantToggle = true;
+			} else {
+
+				$("#TSQuadrantChk").find('input:checkbox').attr('checked', false);
+				TS_ConfigData.showQuadrantToggle = false;
+			}
+
+			if (graphConfigData.quadrant === 1) {
+				$("#TSQuadrant").find("#singleQua").attr('checked', 'checked');
+				TS_ConfigData.quadrant = 1;
+			} else {
+				$("#TSQuadrant").find("#fourQua").attr('checked', 'checked');
+				TS_ConfigData.quadrant = 4;
+			}
+
+
+	      if (graphConfigData.graphLineColor) {
+	        
+	          $("#grpLineColor").find("#peakLineColor").val(graphConfigData.graphLineColor.peakTSCurve);
+	          $("#grpLineColor").find("#peakLineColorPicker").val(graphConfigData.graphLineColor.peakTSCurve);
+
+	          $("#grpLineColor").find("#contLineColor").val(graphConfigData.graphLineColor.contionusTSCurve);          
+	          $("#grpLineColor").find("#contLineColorPicker").val(graphConfigData.graphLineColor.contionusTSCurve);
+	      }
+
+			if (graphConfigData.showApplicationPoints) {
+				$("#TSgrphPoints").find('input:checkbox').attr("checked", true);
+				updateAppPointsValues();
+			} else {
+				$("#TSgrphPoints").find('input:checkbox').attr("checked", false);
+				$("#peakSpeed").attr("disabled", true);
+				$("#peakTorque").attr("disabled", true);
+				$("#rmsTorque").attr("disabled", true);
+				//$("#rmsSpeed").attr("disabled", true);
+				updateAppPointsValues();
+			}
+
+			if (graphConfigData.showMotorTsCurve) {
+				$("#showHideCurveId").find('input:checkbox').attr("checked", true);
+				TS_ConfigData.showMotorTsCurve = true;
+			} else {
+				$("#showHideCurveId").find('input:checkbox').attr("checked", false);
+				TS_ConfigData.showMotorTsCurve = false;
+			}
+
+			if (graphConfigData.showMotorSelForm) {
+				$("#motorSelection").find('input:checkbox').attr("checked", true);
+				TS_ConfigData.showMotorSelForm = true;
+			} else {
+				$("#motorSelection").find('input:checkbox').attr("checked", false);
+				TS_ConfigData.showMotorSelForm = false;
+			}
+
+			if (graphConfigData.showAppPointsForm) {
+				$("#appPointsSelection").find('input:checkbox').attr("checked", true);
+				TS_ConfigData.showAppPointsForm = true;
+			} else {
+				$("#appPointsSelection").find('input:checkbox').attr("checked", false);
+				TS_ConfigData.showAppPointsForm = false;
+			}
+
+			if (graphConfigData.showEnviorForm) {
+				$("#enviormSelection").find('input:checkbox').attr("checked", true);
+				TS_ConfigData.showEnviorForm = true;
+			} else {
+				$("#enviormSelection").find('input:checkbox').attr("checked", false);
+				TS_ConfigData.showEnviorForm = false;
+			}
+
+			if (graphConfigData.showTransmissionForm) {
+				$("#transmissionSelection").find('input:checkbox').attr("checked", true);
+				TS_ConfigData.showTransmissionForm = true;
+			} else {
+				$("#transmissionSelection").find('input:checkbox').attr("checked", false);
+				TS_ConfigData.showTransmissionForm = false;
+			}
+			if (typeof graphConfigData.sliderLimit == 'object') {
+				var $sliderLimitsContainer = $("#sliderLimitsId");
+				$sliderLimitsContainer.find('#maxTorque').val(graphConfigData.sliderLimit.peakMaxTorque);
+				$sliderLimitsContainer.find('#maxSpeed').val(graphConfigData.sliderLimit.peakMaxSpeed);
+
+				$sliderLimitsContainer.find('#maxRmsTorque').val(graphConfigData.sliderLimit.rmsMaxTorque);
+				//$sliderLimitsContainer.find('#maxRmsSpeed').val(graphConfigData.sliderLimit.rmsMaxSpeed);
+
+				$sliderLimitsContainer.find('#maxTemperature').val(graphConfigData.sliderLimit.maxTemp);
+				$sliderLimitsContainer.find('#maxAltitude').val(graphConfigData.sliderLimit.maxAltitude);
+				$sliderLimitsContainer.find('#maxVoltage').val(graphConfigData.sliderLimit.maxVoltage);
+				$sliderLimitsContainer.find('#maxTrRatio').val(graphConfigData.sliderLimit.maxTrRatio);
+			}
+
+			if (typeof graphConfigData.motorData == 'object') {
+				updateMotorDataInputs(graphConfigData.motorData);
+			} else {
+				updateMotorDataInputs(TS_ConfigData.motorData);
+			}
+
+			function updateMotorDataInputs(allMotorsData) {
+       
+				for (var loop = 1; loop < allMotorsData.length + 1; loop++) {
+					
+
+					$("#motorId" + loop).find('td')[1].innerHTML = allMotorsData[loop - 1].motorPartNo;
+					$("#motorId" + loop).find('td')[2].innerHTML = allMotorsData[loop - 1].motorInertia;                  
+					$("#motorId" + loop).find('td')[3].innerHTML = allMotorsData[loop - 1].peakStallTorque;
+					$("#motorId" + loop).find('td')[4].innerHTML = allMotorsData[loop - 1].rollOffPoint;
+					$("#motorId" + loop).find('td')[5].innerHTML = allMotorsData[loop - 1].rollOffSpeed;
+					$("#motorId" + loop).find('td')[6].innerHTML = allMotorsData[loop - 1].maxSpeed;
+					$("#motorId" + loop).find('td')[7].innerHTML = allMotorsData[loop - 1].peakTorqueAtMaxSpeed;
+					$("#motorId" + loop).find('td')[8].innerHTML = allMotorsData[loop - 1].continuousStallTorque;
+					$("#motorId" + loop).find('td')[9].innerHTML = allMotorsData[loop - 1].continuosTorqueAtMaxSpeed;
+				}
+			};
+
+			function updateAppPointsValues() {
+				var $appPointsContainer = $("#TSgrphPoints").find(".appPointsContainer");
+				$appPointsContainer.find('.pkPonitsContainer #peakTorque').val(graphConfigData.peakPoints[1]);
+				$appPointsContainer.find('.pkPonitsContainer #peakSpeed').val(graphConfigData.peakPoints[0]);
+				$appPointsContainer.find('.pkPonitsContainer #rmsTorque').val(graphConfigData.rmsPoints[1]);
+				//$appPointsContainer.find('.pkPonitsContainer #rmsSpeed').val(graphConfigData.rmsPoints[0]);
+				$appPointsContainer.find('.pkPonitsContainer #peakAcc').val(graphConfigData.peakAcceData);
+				$appPointsContainer.find('.pkPonitsContainer #rmsAcc').val(graphConfigData.rmsAcceData);
+			}
+		}
+
+    /*********** export json object **************/
+    if(graphConfigData != undefined){
+      var jsonObj = (graphConfigData);
+    }
+    else{
+      var jsonObj = (TS_ConfigData);
+    }
+
+    var blobObj = new Blob([JSON.stringify(jsonObj, null, 2)], {type: "application/json"});
+    var url  = URL.createObjectURL(blobObj);
+
+    var exportLink = $('<a href="'+url+'" class="exportDataButton" download="input.json" >Export Data</a>');   
+    $("#exportButton").append(exportLink);     
+
+   
+	</script>
+</head>
+
+<body>
+	<div class="modal-header headerbg">
+		<div class="text-center">
+			<h3> T/S Curve Widget Configurations </h3>
+		</div>
+	</div>
+	<div class="modal-body configContainer" id="configContainer">
+		<div class="row section1 modal-header">
+			<h4 class="modal-title">Graph Quadrant</h4>
+			<div id="TSQuadrantChk" class="chkGrp">
+				<label class="showhideQuadrant">
+					<input type="checkbox" id="" value="showQuadrant" class="showQuadrant">&nbsp;Show "Quadrant Selection" Switch
+				</label>
+				<div id="TSQuadrant" class="chkGrp">
+					<div class="radiobutoonContainer">
+						<input type="radio" name='group' value="1" id="singleQua" checked>&nbsp;Single &nbsp;&nbsp;
+						<input type="radio" name='group' value="4" id="fourQua">&nbsp;Four
+					</div>
+				</div>
+			</div>
+		</div>
+    <div class="row section1 modal-header">
+      <h4 class="modal-title">Graph Line Color</h4>
+      <div id="grpLineColor" class="chkGrp">
+
+        <label class="peakTSLineColor">Peak T/S Curve:&nbsp;</label>     
+        <input type="text" class="form-control editTextBox" id="peakLineColor" value="#5187B5" readonly="readonly">
+        <input type="color" class="form-control colorBoxInput" value="#5187B5" id="peakLineColorPicker">        
+      
+         <label class="contTSLineColor">Continous T/S Curve:&nbsp;</label>         
+         <input type="text" class="form-control editTextBox" id="contLineColor" value="#FFD700" readonly="readonly">
+         <input type="color" class="form-control colorBoxInput" value="#FFD700" id="contLineColorPicker">
+       
+      </div>
+    </div>
+		<div class="row section2 modal-header">
+			<h4 class="modal-title">Application Requirements</h4>
+			<div id="TSgrphPoints" class="chkGrp">
+				<label class="appPointsLabel">
+					<input type="checkbox" id="appPoint" value="appPoint" class="appPoints">&nbsp;Show Torque Speed Application Requirements
+				</label>
+				<div class="appPointsContainer chkGrp">
+					<div class="level2Heading">Peak Torque Speed:</div>
+					<div class="pkPonitsContainer">
+						<label for="TS_Torque" class="level2text">Torque:&nbsp;</label>
+						<input type="text" class="form-control editTextBox" id="peakTorque" placeholder="Torque" value="10.32">
+						<label class="level2text">&nbsp;N-m</label>
+						<label for="TS_Speed" class="level2text">Speed:&nbsp;</label>
+						<input type="text" class="form-control editTextBox" id="peakSpeed" placeholder="Speed" value="2.25">
+						<label class="level2text">&nbsp;rad/Sec</label>
+					</div>	
+					<div class="level2Heading">RMS Torque:</div>
+					<div class="pkPonitsContainer">
+						<label for="TS_Torque" class="level2text">Torque:&nbsp;</label>
+						<input type="text" class="form-control editTextBox" id="rmsTorque" placeholder="Torque" value="8.27">
+						<label class="level2text">&nbsp;N-m</label>
+					</div>				
+
+					<div class="level2Heading">RMS and Peak Acceleration:</div>
+					<div class="pkPonitsContainer">
+						<label for="TS_Torque" class="level2text">RMS Acceleration:&nbsp;</label>
+						<input type="text" class="form-control editTextBox" id="rmsAcc" placeholder="Acceleration" value="10.32">
+						<label class="level2text">&nbsp;rad/sec<sup>2</label>
+						<label for="TS_Speed" class="level2text">Peak Acceleration:&nbsp;</label>
+						<input type="text" class="form-control editTextBox" id="peakAcc" placeholder="Speed" value="2.25">
+						<label class="level2text">&nbsp;rad/sec<sup>2</label>
+					</div>
+					
+					
+				</div>
+			</div>
+		</div>
+		<div class="row section3 modal-header">
+			<h4 class="modal-title">Torque-Speed Curve</h4>
+			<div class="showHideCurve" id="showHideCurveId">
+				<label>
+					<input type="checkbox" class="showHideCurve" checked>&nbsp;Show Motor T/S Curve
+				</label>
+			</div>
+		</div>
+		<div class="row section3 modal-header">
+			<h4 class="modal-title">Sample Motor's Data </h4>
+			<div class="tableNoteText">
+				<span class="noteText">*&nbsp;</span>Click inside table cell to change value.
+			</div>
+			<div class="motorDataContainer">
+				<table class="table table-bordered motorDataTable" id="motorDataTable">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Motor</th>			              
+							<th>Motor Inertia</th>
+							<th>Peak Stall Torque (N-m)</th>
+							<th>Roll Off Point (N-m)</th>
+							<th>Roll Off Speed (rad/sec)</th>
+							<th>Max Speed (rad/sec)</th>
+							<th>Peak Torque at Max Speed (N-m)</th>
+							<th>Continuous Stall Torque (N-m)</th>
+							<th>Continuos Torque at Max Speed (N-m)</th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+			</div>
+		</div>
+		<div class="row section4 modal-header">
+			<h4 class="modal-title">Options</h4>
+			<div id="motorSelection" class="chkGrp motorSelection">
+				<label>
+					<input type="checkbox" class="">&nbsp;Show Motor Selection Form</label>
+			</div>
+			<div id="appPointsSelection" class="chkGrp appTorSpeed">
+				<label>
+					<input type="checkbox" class="">&nbsp;Show Application Torque/Speed Form</label>
+			</div>
+			<div id="enviormSelection" class="chkGrp enviroSelection">
+				<label>
+					<input type="checkbox" class="">&nbsp;Show Enviornmental Factors Form</label>
+			</div>
+			<div id="transmissionSelection" class="chkGrp transmissionSelection">
+				<label>
+					<input type="checkbox" class="">&nbsp;Show Transmission Ratio Form</label>
+			</div>
+		</div>
+		<div class="row section6 modal-header">
+			<h4 class="modal-title">Slider Limits</h4>
+			<div class="sliderLimits" id="sliderLimitsId">
+				<div class="SliderTitle">Application Torque Speed: </div>
+				<div class="SliderInputsContainer">
+					<div>
+						<label for="TS_Torque" class="">Min Peak Torque Value:&nbsp;</label>
+						<input type="text" class="form-control editTextBox sliderMinTorque" id="minTorque" placeholder="Torque" value="0" readonly>
+						<label class="torqueUnitW">&nbsp;N-m</label>
+						<label for="TS_Speed" class="maxTorqueLbl">Max Peak Torque Value:&nbsp;</label>
+						<input type="text" class="form-control editTextBox sliderMaxTorque" id="maxTorque" placeholder="Torque" value="100">
+						<label class="">&nbsp;N-m</label>
+					</div>
+					<div>
+						<label for="TS_Speed" class="nextLineStyle">Min Peak Speed Value:&nbsp;</label>
+						<input type="text" class="form-control editTextBox minSpeedtext" id="minSpeed" placeholder="Speed" value="0" readonly>
+						<label class="">&nbsp;rad/Sec</label>
+						<label for="TS_Speed" class="nextLineStyle">Max Peak Speed Value:&nbsp;</label>
+						<input type="text" class="form-control editTextBox maxSpeedtext" id="maxSpeed" placeholder="Speed" value="100">
+						<label class="">&nbsp;rad/Sec</label>
+					</div>
+					<div>
+						<label for="TS_Torque" class="nextLineStyle">Min RMS Torque Value:&nbsp;</label>
+						<input type="text" class="form-control editTextBox minRmsTorquetext" id="minRmsTorque" placeholder="Torque" value="0" readonly>
+						<label class="torqueUnitW">&nbsp;N-m</label>
+						<label for="TS_Torque" class="maxTorqueLbl">Max RMS Torque Value:&nbsp;</label>
+						<input type="text" class="form-control editTextBox maxRmsTorquetext" id="maxRmsTorque" placeholder="Torque" value="100">
+						<label class="">&nbsp;N-m</label>
+					</div>
+					<div>
+						<label for="TS_Speed" class="nextLineStyle">Min RMS Speed Value:&nbsp;</label>
+						<input type="text" class="form-control editTextBox minRmsSpeedtext" id="minRmsSpeed" placeholder="Speed" value="0" readonly>
+						<!-- <label class="">&nbsp;rad/Sec</label>
+						<label for="TS_Speed" class="nextLineStyle">Max RMS Speed Value:&nbsp;</label>
+						<input type="text" class="form-control editTextBox maxRmsSpeedtext" id="maxRmsSpeed" placeholder="Speed" value="100">
+						<label class="">&nbsp;rad/Sec</label> -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="panel-footer">
+		<div class="footerText">
+			<span class="noteText">Note:</span> This dialog allows configuring T/S Curve Widget via UI. These configurations will eventually be provided in the Cosmatt Course via JSON input.
+		</div>
+     <div class="footerLeftSection">
+     <button name="Export" value="export" id="exportButton" class="btn btn-primary"></button> 
+    </div>
+		<div class="footerRightSection">
+		<button name="Ok" value="Ok" id="okButton" class="btn btn-primary">Ok</button>
+    <button type="button" class="closeButton btn btn-primary" data-dismiss="modal">Close</button>
+		</div>
+
+   
+	</div>
+</body>
+
+</html>

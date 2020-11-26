@@ -1,0 +1,31 @@
+/*----- Popoup */
+
+.widget-popup-window {
+  width:1024px;
+  padding: 5px;
+  position:absolute;
+  top:20%;
+  left:50%;
+  box-shadow:0px 2px 16px rgba(0,0,0,0.5);
+  border-radius:3px;
+  background:#fff;
+  right: 0;
+  left: 0;
+  margin: auto;
+  z-index: 999999;
+}
+
+.widget-popup-window .popup-header{
+  padding: 5px;
+  height: 40px;
+}
+
+.widget-popup-window .popup-body{
+  padding: 10px;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.widget-popup-window .popup-footer{
+  padding: 5px;
+}

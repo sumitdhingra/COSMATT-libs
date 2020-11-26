@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    .separateContainer {
+      display: none;
+      margin-top: 10px;
+      margin-left: 15px;
+    }
+    
+    .configContainer .row {
+      text-align: left;
+      padding: 15px;
+    }
+    
+    .configContainer label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: normal;
+    }
+    
+    .configContainer .label-inline label {
+      display: inline-block;
+    }
+    
+    .modal-body {
+      height: 400px;
+      overflow-y: scroll;
+    }
+    
+    .modal-header .closeButton {
+      margin-top: -25px;
+      text-align: right;
+      float: right;
+    }
+    
+    .okButton {
+      margin-right: 10px;
+    }
+    
+    .headerbg {
+      background-color: #f5f5f5;
+    }
+    
+    .text-right {
+      text-align: right;
+    }
+    
+    .text-center {
+      font-size: 18px;
+    }
+    
+    .chkGrp {
+      margin-left: 15px;
+      margin-top: 15px;
+    }
+    
+    .header-text {
+      font-weight: bold;
+    }
+    
+    .modal-title {
+      font-weight: bold;
+    }
+    
+    .modal-title1 {
+      font-size: 15px;
+      font-weight: bold;
+      margin-left: 15px;
+      margin-top: 10px;
+    }
+    
+    #HideGrp {
+      margin-left: 30px;
+    }
+    
+    #readonlyGrp {
+      margin-left: 30px;
+    }
+    
+    .footerText {
+      text-align: left;
+      font-size: 14px;
+    }
+    
+    .noteText {
+      font-weight: bold;
+    }
+    
+    .bottom-buttons {
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .exportDataButton {
+      color: #fff;
+      text-decoration: none;
+    }
+  </style>
+  <script type="text/javascript">
+
+     var linearconfigData = {
+      linearOrRotary: COSMATT.MotionProfile.ENUMS.LinearOrRotary.Linear,
+      graphUnits: {
+        "Velocity": "meterpersecond",
+        "Position": "meter",
+        "Acceleration": "meterpersecondsquare",
+        "Jerk": "meterpersecondcube"
+      },
+      UnitData: {
+        "Velocity": "VELOCITY",
+        "Position": "LINEARDISTANCE",
+        "Acceleration": "ACCELERATION",
+        "Jerk": "JERK"
+      },
+      moveDistanceUnit: "meter",
+      peakVelocityUnit: "meterpersecond",
+      rmsVelocityUnit: "meterpersecond",
+      peakAccelarationUnit: "meterpersecondsquare",
+      rmsAccelarationUnit: "meterpersecondsquare",
+      moveDistanceDefaultUnit: "meter",
+      peakVelocityDefaultUnit: "meterpersecond",
+      rmsVelocityDefaultUnit: "meterpersecond",
+      moveTimeUnit: "second",
+      dwellTimeUnit: "second"
+     };
+
+     var rotaryconfigData ={
+      linearOrRotary: COSMATT.MotionProfile.ENUMS.LinearOrRotary.Rotary,
+      graphUnits: {
+        "Velocity": "revolutionsperminute",
+        "Position": "revolution",
+        "Acceleration": "radianpersecondsquare",
+        "Jerk": "radianpersecondcube"
+      },
+      UnitData: {
+        "Velocity": "ANGULARVELOCITY",
+        "Position": "ANGULARDISTANCE",
+        "Acceleration": "ANGULARACCELERATION",
+        "Jerk": "ANGULARJERK"
+      },
+      moveDistanceUnit: "radian",
+      peakVelocityUnit: "radianpersecond",
+      rmsVelocityUnit: "radianpersecond",
+      peakAccelarationUnit: "radianpersecondsquare",
+      rmsAccelarationUnit: "radianpersecondsquare",
+      moveDistanceDefaultUnit: "revolution",
+      peakVelocityDefaultUnit: "revolutionsperminute",
+      rmsVelocityDefaultUnit: "revolutionsperminute",
+      moveTimeUnit: "second",
+      dwellTimeUnit: "second"
+   }; 
+
+  
+    var configData = {
+      showGraphs: [],
+      showProfiles: [],
+      showGraphDragHandles: [],
+      readOnlyInputs: [],
+      hideInputs: [],
+      velocityFactorUnit: "percentage"
+    };
+
+    $("#profileGrp").find('input:checkbox').change(function() {
+      if ($(this).is(':checked')) {
+        configData.showProfiles.push($(this).val());
+      } else {
+        configData.showProfiles.splice($.inArray($(this).val(), configData.showProfiles), 1);
+      }
+    });
+
+    $("#graphGrp").find('input:checkbox').change(function() {
+      if ($(this).is(':checked')) {
+        configData.showGraphs.push($(this).val());
+      } else {
+        configData.showGraphs.splice($.inArray($(this).val(), configData.showGraphs), 1);
+      }
+    });
+
+    $("#graphModeGrp").find('input:radio').change(function() {
+      if ($(this).is(':checked')) {
+        configData.graphMode = parseInt($(this).val());
+      }
+    });
+
+    $("#modeGrp").find('input:radio').change(function() {
+      if ($(this).is(':checked')) {
+        configData.linearOrRotary = $(this).val();
+      }
+      if($(this).val() == "LINEAR"){
+        $(".graph-units").hide();
+        $(".default-units").hide();
+        configData =  $.extend(configData, linearconfigData);
+      }
+      else if($(this).val() == "ROTARY"){
+        $(".graph-units").show();
+        $(".default-units").show();
+        configData =  $.extend(configData, rotaryconfigData);
+      }
+    });
+
+    $("#readonlyGrp").find('input:checkbox').change(function() {
+      if ($(this).is(':checked')) {
+        configData.readOnlyInputs.push($(this).val());
+      } else {
+        configData.readOnlyInputs.splice($.inArray($(this).val(), configData.readOnlyInputs), 1);
+      }
+    });
+
+    $("#dragHandlerGrp").find('input:checkbox').change(function() {
+      if ($(this).is(':checked')) {
+        configData.showGraphDragHandles.push($(this).val());
+      } else {
+        configData.showGraphDragHandles.splice($.inArray($(this).val(), configData.showGraphDragHandles), 1);
+      }
+    });
+
+    $("#HideGrp").find('input:checkbox').change(function() {
+      if ($(this).is(':checked')) {
+        configData.hideInputs.push($(this).val());
+      } else {
+        configData.hideInputs.splice($.inArray($(this).val(), configData.hideInputs), 1);
+      }
+    });
+
+    $("#okButton").click(function() {
+      var url = '';
+      sessionStorage.clear();
+      sessionStorage.setItem("obj", JSON.stringify(configData));
+      window.location.href = url;
+    });
+
+     if (graphConfigData.linearOrRotary === "LINEAR") {
+       configData = $.extend(configData, linearconfigData);
+      }
+      else{
+       configData = $.extend(configData, rotaryconfigData);
+      }  
+
+    if (!graphConfigData.graphUnits) {
+      graphConfigData['graphUnits'] = configData.graphUnits;
+    }
+
+    if (!graphConfigData.moveDistanceUnit) graphConfigData['moveDistanceUnit'] = configData.moveDistanceUnit;
+    if (!graphConfigData.moveTimeUnit) graphConfigData['moveTimeUnit'] = configData.moveTimeUnit;
+    if (!graphConfigData.dwellTimeUnit) graphConfigData['dwellTimeUnit'] = configData.dwellTimeUnit;
+    if (!graphConfigData.peakVelocityUnit) graphConfigData['peakVelocityUnit'] = configData.peakVelocityUnit;
+    if (!graphConfigData.rmsVelocityUnit) graphConfigData['rmsVelocityUnit'] = configData.rmsVelocityUnit;
+    if (!graphConfigData.peakAccelarationUnit) graphConfigData['peakAccelarationUnit'] = configData.peakAccelarationUnit;
+    if (!graphConfigData.rmsAccelarationUnit) graphConfigData['rmsAccelarationUnit'] = configData.rmsAccelarationUnit;
+    if (!graphConfigData.velocityFactorUnit) graphConfigData['velocityFactorUnit'] = configData.velocityFactorUnit;
+
+    for (let graph of Object.keys(graphConfigData.graphUnits)) {
+      $(`#${graph}GraphGroup`).find('input:radio').change(function() {
+        if ($(this).is(':checked')) {
+          configData.graphUnits[graph] = $(this).val();
+        }
+      });
+    }
+
+    $(`#MoveDistanceGroup`).find('input:radio').change(function() {
+      if ($(this).is(':checked')) {
+        configData.moveDistanceUnit = $(this).val();
+      }
+    });
+
+    $(`#MoveTimeGroup`).find('input:radio').change(function() {
+      if ($(this).is(':checked')) {
+        configData.moveTimeUnit = $(this).val();
+      }
+    });
+
+    $(`#DwellTimeGroup`).find('input:radio').change(function() {
+      if ($(this).is(':checked')) {
+        configData.dwellTimeUnit = $(this).val();
+      }
+    });
+
+    $(`#PeakVelocityGroup`).find('input:radio').change(function() {
+      if ($(this).is(':checked')) {
+        configData.peakVelocityUnit = $(this).val();
+      }
+    });
+
+    $(`#RMSVelocityGroup`).find('input:radio').change(function() {
+      if ($(this).is(':checked')) {
+        configData.rmsVelocityUnit = $(this).val();
+      }
+    });
+
+    $(`#PeakAccelerationGroup`).find('input:radio').change(function() {
+      if ($(this).is(':checked')) {
+        configData.peakAccelarationUnit = $(this).val();
+      }
+    });
+
+    $(`#RMSAccelerationGroup`).find('input:radio').change(function() {
+      if ($(this).is(':checked')) {
+        configData.rmsAccelarationUnit = $(this).val();
+      }
+    });
+
+
+    if (typeof graphConfigData == 'object') {
+
+      if (graphConfigData.showProfiles.length > 0) {
+        for (let profile of graphConfigData.showProfiles) {
+          $("#profileGrp").find("#" + profile).attr('checked', 'checked');
+          configData.showProfiles.push(profile);
+        }
+      }
+
+      if (graphConfigData.graphMode === 0) {
+        $("#graphModeGrp").find("#individualAxis").attr('checked', 'checked');
+      } else if (graphConfigData.graphMode === 1) {
+        $("#graphModeGrp").find("#multiAxis").attr('checked', 'checked');
+      }
+
+      if (graphConfigData.linearOrRotary === "LINEAR") {
+        $("#modeGrp").find("#linearMode").attr('checked', 'checked');
+        $(".graph-units").hide();
+        $(".default-units").hide();
+        configData.linearOrRotary = "LINEAR";
+      }
+      else{
+        $("#modeGrp").find("#rotaryMode").attr('checked', 'checked');
+        $(".graph-units").show();
+        $(".default-units").show();
+        configData.linearOrRotary = "ROTARY";
+      }  
+
+      if (graphConfigData.showGraphs && graphConfigData.showGraphs.length > 0) {
+        for (let graphs of graphConfigData.showGraphs) {
+          $("#graphGrp").find("#" + graphs).attr('checked', 'checked');
+          configData.showGraphs.push(graphs);
+        }
+      }
+
+      if (graphConfigData.showGraphDragHandles == true) {
+        $("#dragHandlerGrp").find("#position").attr('checked', 'checked');
+        $("#dragHandlerGrp").find("#peakVelocity").attr('checked', 'checked');
+        $("#dragHandlerGrp").find("#moveTime").attr('checked', 'checked');
+        $("#dragHandlerGrp").find("#dwellTime").attr('checked', 'checked');
+        configData.showGraphDragHandles.push("position", "peakVelocity", "moveTime", "dwellTime");
+      } else if (graphConfigData.showGraphDragHandles && graphConfigData.showGraphDragHandles.length > 0) {
+        for (let dragHandle of graphConfigData.showGraphDragHandles) {
+          $("#dragHandlerGrp").find("#" + dragHandle).attr('checked', 'checked');
+          configData.showGraphDragHandles.push(dragHandle);
+        }
+      }
+      if (graphConfigData.readOnlyInputs && graphConfigData.readOnlyInputs.length > 0) {
+        for (let readOnly of graphConfigData.readOnlyInputs) {
+          $("#readonlyGrp").find("#" + readOnly).attr('checked', 'checked');
+          configData.readOnlyInputs.push(readOnly);
+        }
+      }
+
+      if (graphConfigData.hideInputs && graphConfigData.hideInputs.length > 0) {
+        for (let hideInputs of graphConfigData.hideInputs) {
+          $("#HideGrp").find("#" + hideInputs).attr('checked', 'checked');
+          configData.hideInputs.push(hideInputs);
+        }
+      }
+
+      if (graphConfigData.graphMode) {
+        configData.graphMode = graphConfigData.graphMode;
+      }
+
+      if (graphConfigData.graphUnits && Object.keys(graphConfigData.graphUnits).length > 0) {
+        for (let graph of Object.keys(graphConfigData.graphUnits)) {
+          $(`#${graph}GraphGroup`).find("#" + graphConfigData.graphUnits[graph]).attr('checked', 'checked');
+          if (!configData.graphUnits) {
+            configData.graphUnits = {};
+          }
+          configData.graphUnits[graph] = graphConfigData.graphUnits[graph];
+        }
+      }
+
+      $(`#MoveDistanceGroup`).find(`#${graphConfigData.moveDistanceUnit}`).attr('checked', 'checked');
+      configData.moveDistanceUnit = graphConfigData.moveDistanceUnit;
+
+      $(`#MoveTimeGroup`).find(`#${graphConfigData.moveTimeUnit}`).attr('checked', 'checked');
+      configData.moveTimeUnit = graphConfigData.moveTimeUnit;
+
+      $(`#DwellTimeGroup`).find(`#${graphConfigData.dwellTimeUnit}`).attr('checked', 'checked');
+      configData.dwellTimeUnit = graphConfigData.dwellTimeUnit;
+
+      $(`#PeakVelocityGroup`).find(`#${graphConfigData.peakVelocityUnit}`).attr('checked', 'checked');
+      configData.peakVelocityUnit = graphConfigData.peakVelocityUnit;
+
+      $(`#RMSVelocityGroup`).find(`#${graphConfigData.rmsVelocityUnit}`).attr('checked', 'checked');
+      configData.rmsVelocityUnit = graphConfigData.rmsVelocityUnit;
+
+      $(`#PeakAccelerationGroup`).find(`#${graphConfigData.peakAccelarationUnit}`).attr('checked', 'checked');
+      configData.peakAccelarationUnit = graphConfigData.peakAccelarationUnit;
+
+      $(`#RMSAccelerationGroup`).find(`#${graphConfigData.rmsAccelarationUnit}`).attr('checked', 'checked');
+      configData.rmsAccelarationUnit = graphConfigData.rmsAccelarationUnit;
+    }
+
+
+    /*********** export json object **************/
+    if (graphConfigData != undefined) {
+      var jsonObj = (graphConfigData);
+    } else {
+      var jsonObj = (configData);
+    }
+
+    var configObjJson = {
+      "type": "motion-profile",
+      "options": {
+        "data": {}
+      }
+    };
+
+
+
+
+    // var exportLink = $('<a onclick="exportJson(this);" class="exportDataButton">Export Data</a>');
+    // $("#exportButton").append(exportLink);
+
+    function exportJson(ele) {
+      
+      var widgetValues = a.getProfileValues();
+      $.extend(configObjJson.options.data, jsonObj, widgetValues);
+      delete configObjJson.options.data.showEditConfigButton;
+      var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(configObjJson));
+      ele.setAttribute("href", "data:" + data);
+      ele.setAttribute("download", "input.json");
+    };
+  </script>
+</head>
+
+<body>
+  <div class="modal-header headerbg">
+    <div class="text-center">
+      <h3> Profile Widget Configurations </h3>
+    </div>
+  </div>
+  <div class="modal-body configContainer" id="configContainer">
+    
+    <div class="row section1 modal-header">
+      <h4 class="modal-title"> Linear or Rotary</h4>
+       <div id="modeGrp" class="chkGrp">
+        <label><input type="radio" name='modeGroup' value="ROTARY" id="rotaryMode">&nbsp;Rotary</label>
+        <label><input type="radio" name='modeGroup' value="LINEAR" id="linearMode">&nbsp;Linear</label>
+      </div>
+    </div>
+
+    <div class="row section1 modal-header">
+      <h4 class="modal-title"> Template Button Options</h4>
+      <div id="profileGrp" class="chkGrp">
+        <label><input type="checkbox" id="profile1" value="profile1" class="profile">&nbsp;Profile 1</label>
+        <label><input type="checkbox" id="profile2" value="profile2" class="profile">&nbsp;Profile 2</label>
+        <label><input type="checkbox" id="profile3" value="profile3" class="profile">&nbsp;Profile 3</label>
+      </div>
+    </div>
+    <div class="row section2 modal-header">
+      <h4 class="modal-title"> Profile Plot Options</h4>
+      <div id="graphModeGrp" class="chkGrp">
+        <label><input type="radio" name='group' value="0" id="individualAxis">&nbsp;Individual Axis</label>
+        <label><input type="radio" name='group' value="1" id="multiAxis">&nbsp;Multi Axis (Overlap)</label>
+      </div>
+    </div>
+    <div class="row section2 modal-header">
+      <h4 class="modal-title"> Show graphs</h4>
+      <div id="graphGrp" class="chkGrp">
+        <label><input type="checkbox" value="pos" id="pos">&nbsp;Position</label>
+        <label><input type="checkbox" value="vel" id="vel">&nbsp;Velocity</label>
+        <label><input type="checkbox" value="acc" id="acc">&nbsp;Acceleration</label>
+        <label><input type="checkbox" value="jerk" id="jerk">&nbsp;Jerk</label>
+      </div>
+    </div>
+    <div class="row section3 modal-header">
+      <h4 class="modal-title"> Drag Handles Options</h4>
+      <div id="dragHandlerGrp" class="chkGrp">
+        <label><input type="checkbox" id="position" value="position">&nbsp;Move Distance</label>
+        <label><input type="checkbox" id="peakVelocity" value="peakVelocity">&nbsp;Peak Velocity</label>
+        <label><input type="checkbox" id="moveTime" value="moveTime">&nbsp;Move Time</label>
+        <label><input type="checkbox" id="dwellTime" value="dwellTime">&nbsp;Dwell Time</label>
+      </div>
+    </div>
+    <div class="row section4 modal-header">
+      <h4 class="modal-title"> Entry Box Options</h4>
+      <div class="modal-title1"> Disable</div>
+      <div id="readonlyGrp" class="chkGrp">
+        <label><input type="checkbox" name="" id="moveDistance" value="moveDistance" class="profile">&nbsp;Move Distance</label>
+        <label><input type="checkbox" id="moveTime" name="" value="moveTime" class="profile">&nbsp;Move Time</label>
+        <label><input type="checkbox" id="dwellTime" value="dwellTime">&nbsp;Dwell Time</label>
+        <label><input type="checkbox" id="indexType" value="indexType">&nbsp;Velocity Form Factor</label>
+        <label><input type="checkbox" id="peakVelocity" value="peakVelocity">&nbsp;Peak Velocity</label>
+        <label><input type="checkbox" id="rmsVelocity" value="rmsVelocity">&nbsp;Rms Velocity</label>
+        <label><input type="checkbox" id="peakAcc" value="peakAcc">&nbsp;Peak Accelaration</label>
+        <label><input type="checkbox" id="rmsAcc" value="rmsAcc">&nbsp;Rms Accelaration</label>
+        <!-- <label><input type="checkbox" id="smoothness" value="smoothness">&nbsp;Smoothness</label>	 -->
+      </div>
+      <div class="modal-title1"> Hide</div>
+      <div id="HideGrp" class="chkGrp">
+        <label><input type="checkbox" id="moveDistance" name="" value="moveDistance" class="profile">&nbsp;Move Distance</label>
+        <label><input type="checkbox" id="moveTime" name="" value="moveTime" class="profile">&nbsp;Move Time</label>
+        <label><input type="checkbox" id="dwellTime" value="dwellTime">&nbsp;Dwell Time</label>
+        <label><input type="checkbox" id="indexType" value="indexType">&nbsp;Velocity Form Factor</label>
+        <label><input type="checkbox" id="peakVelocity" value="peakVelocity">&nbsp;Peak Velocity</label>
+        <label><input type="checkbox" id="rmsVelocity" value="rmsVelocity">&nbsp;Rms Velocity</label>
+        <label><input type="checkbox" id="peakAcc" value="peakAcc">&nbsp;Peak Accelaration</label>
+        <label><input type="checkbox" id="rmsAcc" value="rmsAcc">&nbsp;Rms Accelaration</label>
+        <label><input type="checkbox" id="smoothness" value="smoothness">&nbsp;Smoothness</label>
+      </div>
+    </div>
+
+    <div class="row section4 modal-header label-inline graph-units">
+      <h4 class="modal-title"> Graph Units</h4>
+      <div class="modal-title1"> Position Graph</div>
+      <div id="PositionGraphGroup" class="chkGrp">
+        <label><input type="radio" name='group1' value="radian" id="radian">&nbsp;rad</label>
+        <label><input type="radio" name='group1' value="degree" id="degree">&nbsp;deg</label>
+        <label><input type="radio" name='group1' value="revolution" id="revolution">&nbsp;rev</label>
+        <label><input type="radio" name='group1' value="minute" id="minute">&nbsp;min</label>
+      </div>
+
+      <div class="modal-title1"> Velocity Graph</div>
+      <div id="VelocityGraphGroup" class="chkGrp">
+        <label><input type="radio" name='group2' value="radianpersecond" id="radianpersecond">&nbsp;rad/sec</label>
+        <label><input type="radio" name='group2' value="degreepersecond" id="degreepersecond">&nbsp;deg/sec</label>
+        <label><input type="radio" name='group2' value="revolutionpersecond" id="revolutionpersecond">&nbsp;rev/sec</label>
+        <label><input type="radio" name='group2' value="revolutionsperminute" id="revolutionsperminute">&nbsp;rev/min</label>
+      </div>
+
+      <div class="modal-title1"> Acceleration Graph</div>
+      <div id="AccelerationGraphGroup" class="chkGrp">
+        <label><input type="radio" name='group3' value="radianpersecondsquare" id="radianpersecondsquare">&nbsp;rad/sec<sup>2</sup></label>
+        <label><input type="radio" name='group3' value="degreepersecondsquare" id="degreepersecondsquare">&nbsp;deg/sec<sup>2</sup></label>
+        <label><input type="radio" name='group3' value="revolutionspersecondsquare" id="revolutionspersecondsquare">&nbsp;rev/sec<sup>2</sup></label>
+        <label><input type="radio" name='group3' value="revolutionsperminutepersecond" id="revolutionsperminutepersecond">&nbsp;rpm/sec</label>
+      </div>
+
+      <div class="modal-title1"> Jerk Graph</div>
+      <div id="JerkGraphGroup" class="chkGrp">
+        <label><input type="radio" name='group4' value="radianpersecondcube" id="radianpersecondcube">&nbsp;rad/sec<sup>3</sup></label>
+        <label><input type="radio" name='group4' value="degreepersecondcube" id="degreepersecondcube">&nbsp;deg/sec<sup>3</sup></label>
+        <label><input type="radio" name='group4' value="revolutionpersecondcube" id="revolutionpersecondcube">&nbsp;rev/sec<sup>3</sup></label>
+        <label><input type="radio" name='group4' value="revolutionperminutepersecondsquare" id="revolutionperminutepersecondsquare">&nbsp;rpm/sec<sup>2</sup></label>
+      </div>
+
+    </div>
+
+    <div class="row section4 modal-header label-inline default-units">
+      <h4 class="modal-title"> Default Units</h4>
+      <div class="modal-title1"> Move Distance</div>
+      <div id="MoveDistanceGroup" class="chkGrp">
+        <label><input type="radio" name='group111' value="radian" id="radian">&nbsp;rad</label>
+        <label><input type="radio" name='group111' value="degree" id="degree">&nbsp;deg</label>
+        <label><input type="radio" name='group111' value="revolution" id="revolution">&nbsp;rev</label>
+        <label><input type="radio" name='group111' value="minute" id="minute">&nbsp;min</label>
+      </div>
+
+      <div class="modal-title1"> Move Time</div>
+      <div id="MoveTimeGroup" class="chkGrp">
+        <label><input type="radio" name='group112' value="second" id="second">&nbsp;sec</label>
+        <label><input type="radio" name='group112' value="minute" id="minute">&nbsp;min</label>
+        <label><input type="radio" name='group112' value="millisecond" id="millisecond">&nbsp;msec</label>
+      </div>
+
+      <div class="modal-title1"> Dwell Time</div>
+      <div id="DwellTimeGroup" class="chkGrp">
+        <label><input type="radio" name='group113' value="second" id="second">&nbsp;sec</label>
+        <label><input type="radio" name='group113' value="minute" id="minute">&nbsp;min</label>
+        <label><input type="radio" name='group113' value="millisecond" id="millisecond">&nbsp;msec</label>
+      </div>
+
+      <div class="modal-title1"> Peak Velocity</div>
+      <div id="PeakVelocityGroup" class="chkGrp">
+        <label><input type="radio" name='group114' value="radianpersecond" id="radianpersecond">&nbsp;rad/sec</label>
+        <label><input type="radio" name='group114' value="degreepersecond" id="degreepersecond">&nbsp;deg/sec</label>
+        <label><input type="radio" name='group114' value="revolutionpersecond" id="revolutionpersecond">&nbsp;rev/sec</label>
+        <label><input type="radio" name='group114' value="revolutionsperminute" id="revolutionsperminute">&nbsp;rev/min</label>
+      </div>
+
+      <div class="modal-title1"> RMS Velocity</div>
+      <div id="RMSVelocityGroup" class="chkGrp">
+        <label><input type="radio" name='group115' value="radianpersecond" id="radianpersecond">&nbsp;rad/sec</label>
+        <label><input type="radio" name='group115' value="degreepersecond" id="degreepersecond">&nbsp;deg/sec</label>
+        <label><input type="radio" name='group115' value="revolutionpersecond" id="revolutionpersecond">&nbsp;rev/sec</label>
+        <label><input type="radio" name='group115' value="revolutionsperminute" id="revolutionsperminute">&nbsp;rev/min</label>
+      </div>
+
+      <div class="modal-title1"> Peak Acceleration</div>
+      <div id="PeakAccelerationGroup" class="chkGrp">
+        <label><input type="radio" name='group116' value="radianpersecondsquare" id="radianpersecondsquare">&nbsp;rad/sec<sup>2</sup></label>
+        <label><input type="radio" name='group116' value="degreepersecondsquare" id="degreepersecondsquare">&nbsp;deg/sec<sup>2</sup></label>
+        <label><input type="radio" name='group116' value="revolutionspersecondsquare" id="revolutionspersecondsquare">&nbsp;rev/sec<sup>2</sup></label>
+        <label><input type="radio" name='group116' value="revolutionsperminutepersecond" id="revolutionsperminutepersecond">&nbsp;rpm/sec</label>
+      </div>
+
+      <div class="modal-title1"> RMS Acceleration</div>
+      <div id="RMSAccelerationGroup" class="chkGrp">
+        <label><input type="radio" name='group117' value="radianpersecondsquare" id="radianpersecondsquare">&nbsp;rad/sec<sup>2</sup></label>
+        <label><input type="radio" name='group117' value="degreepersecondsquare" id="degreepersecondsquare">&nbsp;deg/sec<sup>2</sup></label>
+        <label><input type="radio" name='group117' value="revolutionspersecondsquare" id="revolutionspersecondsquare">&nbsp;rev/sec<sup>2</sup></label>
+        <label><input type="radio" name='group117' value="revolutionsperminutepersecond" id="revolutionsperminutepersecond">&nbsp;rpm/sec</label>
+      </div>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <div class="footerText"><span class="noteText">Note:</span> This dialog allows configuring Profile Widget via UI. These configurations will enentually be provided in the Cosmatt Course via JSON input.</div>
+    <div class="bottom-buttons">
+      <div class="text-left">
+        <!-- <button name="Export" value="export" id="exportButton" class="btn btn-primary"></button> -->
+        <a onclick="exportJson(this);">Export Data</a>
+      </div>
+      <div class="text-right">
+        <button name="Ok" value="Ok" id="okButton" class="btn btn-primary">Ok</button>
+        <button type="button" class="closeButton btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>

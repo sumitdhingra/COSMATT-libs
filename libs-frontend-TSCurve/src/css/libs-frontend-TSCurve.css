@@ -1,0 +1,1130 @@
+.tsCruveContainer {
+    /* margin-top: 30px;
+     margin-bottom: 30px;
+     margin-left: 3%;
+     margin-right: 3%;
+    */
+    /*font-size: 12px;
+    */
+}
+ .tsCruveContainer .curveConfigContainer {
+     margin-right: 0px;
+     margin-left: 0px;
+}
+ .tsCruveContainer #servoMotorTSCurve {
+    /* margin: 0 auto;
+     */
+     background-color: #f3f3f3;
+     margin-bottom: 10px;
+}
+ .tsCruveContainer #servoMotorTSCurve.rightBorder {
+     border-right: solid #d3d3d3 1px;
+}
+ .tsCruveContainer #servoMotorArea {
+    /*margin-top: 80px;
+    */
+    /*padding-left: 30px;
+    */
+    /* margin-left: 10px;
+    */
+    /* padding-top: 7px;
+    */
+}
+ .tsCruveContainer .display-inline{
+     display: inline-block;
+}
+/*#servoMotorTSCurve.widthMaxLimit{
+     max-width: 1120px;
+}
+*/
+/*.tsCruveContainer #servoMotorArea #motorDataContainer {
+     min-width: 350px;
+}
+*/
+ .tsCruveContainer #servoMotorArea #servoMotorInfoContainer .table {
+     margin-bottom: 0px;
+}
+ .tsCruveContainer #servoMotorArea #motorAreaAccordionContainer {
+    /*padding: 20px;
+    */
+    /*min-width: 400px;
+    */
+     width: 100%;
+}
+ .tsCruveContainer #servoMotorArea #motorDataContainer {
+    /* padding-left: 15px;
+     */
+    /*min-width: 400px;
+    */
+}
+ .tsCruveContainer #servoMotorArea #motorSelectionTableContainer {
+     min-width: 325px;
+     padding-left: 5px;
+     padding-right: 0px;
+}
+ .tsCruveContainer #servoMotorArea #motorSelectionTableContainer #motorSelectionTable {
+     cursor: pointer;
+     margin-bottom: 0px;
+}
+ .tsCruveContainer #servoMotorArea #motorSelectionTableContainer #motorSelectionTable thead tr .statusHead {
+     text-align: center;
+}
+ .tsCruveContainer #servoMotorArea #motorSelectionTableContainer #motorSelectionTable tr td {
+     vertical-align: middle;
+}
+ .tsCruveContainer #servoMotorArea #motorSelectionTableContainer #motorSelectionTable .motorSelected {
+     background-color: #F5F5F5;
+}
+ .tsCruveContainer #servoMotorArea #motorAreaAccordionContainer .motorStatusIcon.glyphicon-ok {
+     color: green;
+}
+ .tsCruveContainer #servoMotorArea #motorAreaAccordionContainer .motorStatusIcon.glyphicon-remove {
+     color: red;
+}
+ .tsCruveContainer #motorAreaAccordionContainer #tsPointsPanelContainer #statusValueContainer div {
+     padding-left: 0px;
+}
+/*.tsCruveContainer #servoMotorArea #motorSelectionTableContainer #motorSelectionTable .motorPartNoCell {
+     min-width: 110px;
+}
+*/
+/*.tsCruveContainer #servoMotorArea #motorSelectionTableContainer #motorSelectionTable .motorFrameCell {
+     text-align: center;
+}
+*/
+ .tsCruveContainer #servoMotorArea #motorSelectionTableContainer #motorSelectionTable .motorStatusCell {
+     text-align: center;
+}
+ .tsCruveContainer #servoMotorArea #motorSelectionTableContainer #motorSelectionTable .motorDetailsCell {
+    /*min-width: 65px;
+    */
+     padding-bottom: 3px;
+     padding-top: 3px;
+}
+ .tsCruveContainer #servoMotorArea #motorSelectionTableContainer #motorSelectionTable .motorDetailsCell .btn-info {
+    /*font-size: 17px;
+    */
+     padding-top: 4px;
+     padding-bottom: 4px;
+}
+ .tsCruveContainer #servoMotorArea #motorSelectionTableContainer #motorSelectionTable .motorDetailsCell #motorDetailsButton {
+     display: none;
+}
+ .tsCruveContainer #servoMotorArea #motorSelectionTableContainer #motorSelectionTable .motorDetailsCell #motorDetailsButton.btn-info-visible {
+     display: block;
+}
+ .tsCruveContainer .curveConfigContainer {
+     min-height: 40px;
+     margin-bottom: 25px;
+     margin-top: 15px;
+}
+/*.tsCruveContainer .curveConfigContainer #motorDataContainer{
+     border: solid #d3d3d3 1px;
+     border-radius: 5px;
+     padding:10px 0px 10px 0px;
+}
+ .tsCruveContainer .curveConfigContainer #motorDataContainer #motorDataTitle{
+     position: absolute;
+     top: -10px;
+     left: 10px;
+     background-color: #fff;
+}
+*/
+ .tsCruveContainer .curveConfigContainer .tableDDContainer .tableSelectDDMenu {
+     height: 30px;
+}
+ .tsCruveContainer .curveConfigContainer .motorSpecContainer #motorButton {
+     padding: 2px 0px 0px 2px;
+}
+ .tsCruveContainer .curveConfigContainer .motorSpecContainer #motorButton #motorSpecButton {
+     height: 26px;
+     width: 33px;
+}
+ .tsCruveContainer .curveConfigContainer .plotModeContainer {
+    /*padding-right: 0px;
+     height: 34px;
+     padding-top: 5px;
+    */
+    /*border: solid #d3d3d3 1px;
+     border-radius: 5px;
+    */
+}
+ .tsCruveContainer .curveConfigContainer .plotModeContainer #plotModeToggle .selectedQuad {
+     background-color: #E6E6E4;
+}
+ .tsCruveContainer .curveConfigContainer .plotModeContainer #quadrantTitle {
+    /*position: absolute;
+     top: -10px;
+     left: 10px;
+     background-color: #fff;
+    */
+     font-weight: bold;
+}
+ .tsCruveContainer .curveConfigContainer .plotModeContainer #quadRadioContainer {
+     margin: 12px 3px 11px 3px;
+}
+ .tsCruveContainer .curveConfigContainer .plotModeContainer label {
+     font-weight: normal;
+     cursor: pointer;
+}
+ .tsCruveContainer .curveConfigContainer .plotModeContainer label#quadrantTitle {
+     font-weight: bold;
+}
+ .tsCruveContainer .accordion-plus-minus {
+     font-size: 12px;
+     color: grey;
+}
+ .tsCruveContainer #motorStatus {
+     padding-right: 0px;
+     padding-left: 0px;
+}
+ .tsCurveFlotTip {
+     padding: 4px 10px;
+     background-color: rgba(0, 0, 0, 0.8) !important;
+     border: solid 1px #000 !important;
+     z-index: 100;
+     font-size: 12px;
+     color: #fff;
+     border-radius: 5px;
+}
+ .tsCruveContainer #servoMotorInfoContainer .motorSpecTable .tableRow {
+     min-height: 30px;
+     padding: 5px;
+     margin-right: 0px;
+     margin-left: 0px;
+     border-bottom: solid #d3d3d3 1px;
+}
+ .tsCruveContainer #servoMotorInfoContainer .motorSpecTable .tableHeading {
+     min-height: 30px;
+     padding: 3px;
+     margin-right: 0px;
+     margin-left: 0px;
+     font-weight: bold;
+     font-size: 18px;
+     border-bottom: solid #d3d3d3 1px;
+}
+/*.tsCruveContainer #servoMotorInfoContainer .motorSpecTable .tableRow:nth-of-type(odd) {
+     background: #FAFBFC;
+}
+*/
+ .tsCruveContainer #servoMotorInfoContainer .motorSpecTable .leftCol {
+    /*font-weight: bold;
+    */
+     border-right: solid #d3d3d3 1px;
+     max-width: 80px;
+}
+ .tsCruveContainer #servoMotorInfoContainer .motorSpecTable .rightCol {
+     max-width: 80px;
+}
+ .tsCruveContainer #servoMotorInfoContainer .motorSpecTable {
+     background-color: #fefefe;
+     margin: auto;
+     border: 5px solid #888;
+     width: 40%;
+     border-radius: 5px;
+     -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+     -webkit-box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.28);
+     -moz-box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.28);
+     box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.28);
+}
+ .tsCruveContainer .motorSpecTable table {
+     margin-bottom: 0px;
+}
+ .tsCruveContainer .motorSpecTable .motorTableTitle {
+     text-align: center;
+     color: #000;
+     font-size: 16px;
+     font-weight: bold;
+     border-bottom: solid 2px #d3d3d3;
+}
+ .tsCruveContainer #motorInfoContainer {
+     height: 5px;
+     width: 1px;
+}
+ .tsCruveContainer #feedbackContainer {
+    /*border: solid 2px;
+    */
+}
+ .tsCruveContainer #feedbackContainer #feedbackTitle {
+     font-weight: bold;
+     padding-left: 5px;
+     font-size: 18px;
+}
+ .tsCruveContainer #feedbackContainer .motorStatusContainer {
+     margin-right: 0px;
+    /*margin-left: 25px;
+    */
+}
+ .tsCruveContainer #feedbackContainer .motorStatusContainer #motorStatusIcon {
+     height: 20px;
+     width: 20px;
+     margin-left: 5px;
+     margin-top: 1px;
+     margin-right: 10px;
+     padding-right: 0px;
+}
+ .tsCruveContainer #feedbackContainer .motorStatusContainer #motorStatus {
+    /*margin-left: 5px;
+    */
+     font-size: 17px;
+}
+ #editConfigBtnContainer {
+     width: 100%;
+     padding-right: 30px;
+     bottom: 0px;
+     z-index: 100;
+     height: 60px;
+     position: absolute;
+     right: 0px;
+}
+ .tsCruveContainer #motorSpecTableModal .modal-body {
+     padding: 0px;
+     border: solid #c3c3c3 4px;
+}
+ .tsCruveContainer #servoMotorInfoContainer {
+     display: none;
+     width: 100%;
+     height: 100%;
+     position: absolute;
+     z-index: 101;
+     padding-top: 100px;
+    /* Location of the box */
+     left: 0;
+     top: 0;
+}
+ .tsCruveContainer #servoMotorArea #motorSlider {
+    /*border: 2px solid #a9a9a9;
+    */
+     margin-right: 3px;
+    /*background-color: #a9a9a9;
+    */
+}
+ .tsCruveContainer .tsPlotArea .legendLabel {
+     padding: 5px;
+}
+ .tsCruveContainer .tsPlotArea .legend table {
+     pointer-events: none;
+     margin: 0px !important;
+     width: auto;
+}
+ .tsCruveContainer .tsPlotArea .legend table tr {
+     background-color: transparent !important;
+     border-width: 0px !important;
+     margin: 2px 0;
+}
+ .tsCruveContainer .tsPlotArea .legend table tr td {
+     border-width: 0px !important;
+     vertical-align: middle;
+     text-align: left !important;
+}
+ .tsCruveContainer .tsPlotArea .legend td.legendColorBox > div > div {
+     border-radius:initial;
+     box-sizing:inherit;
+}
+ .slider.slider-horizontal {
+     width: 92%;
+     padding-top: 0px;
+     margin-top: 7.5px;
+}
+ .tsCruveContainer .slider-handle {
+     width: 12px;
+     height: 12px;
+     cursor: pointer;
+}
+ .tsCruveContainer .slider-horizontal {
+     cursor: pointer;
+}
+ .tsCruveContainer .slider.slider-horizontal .slider-track {
+     height: 2px;
+}
+ .tsCruveContainer .slider-tick {
+     width: 10px;
+     height: 10px;
+}
+/*.tsCruveContainer span{
+     font-size: 11px;
+}
+ lable.value{
+     font-size: 10px;
+}
+ .solutionInfoTitle{
+     font-size: 11px;
+}
+*/
+ @media (min-width:960px){
+    /* styles for browsers larger than 960px;
+     */
+}
+ @media (min-width:1440px){
+    /* styles for browsers larger than 1440px;
+     */
+}
+ @media (min-width:2000px){
+    /* for sumo sized (mac) screens */
+}
+ @media (max-device-width:480px){
+    /* styles for mobile browsers smaller than 480px;
+     (iPhone) */
+}
+ @media (max-width:1024px){
+    /* default iPad screens */
+}
+/* different techniques for iPad screening */
+ @media (min-device-width: 481px) and (max-device-width: 1024px) {
+    /* For portrait layouts only */
+}
+ .tsCruveContainer .resizeWidth{
+     width :100%;
+     flex: inherit;
+     max-width: 100%;
+}
+ .tsCruveContainer #motorAreaAccordionContainer #tsPointsPanelContainer .ui-slider, #envFactorsPanelContainer .ui-slider, #transmissionRatioPanelContainer .ui-slider {
+     margin-top: 4px;
+    /*margin-top: 8px;
+     border: 2px solid #a9a9a9;
+     background-color: #a9a9a9;
+    */
+}
+ .tsCruveContainer #motorAreaAccordionContainer #tsPointsPanelContainer #alertMessageContainer, #transmissionRatioPanelContainer #alertMessageContainer {
+     display: none;
+     margin-bottom: 0px;
+}
+/*.tsCruveContainer #motorAreaAccordionContainer #tsPointsPanelContainer .ui-slider .ui-slider-handle, #envFactorsPanelContainer .ui-slider .ui-slider-handle, #transmissionRatioPanelContainer .ui-slider .ui-slider-handle {
+     background: url('');
+     border: none;
+     background-color: #D3D3D3;
+     cursor: pointer;
+     top: -0.6em;
+}
+ .tsCruveContainer #motorAreaAccordionContainer #tsPointsPanelContainer .ui-slider .ui-slider-handle:hover, .ui-slider-handle.ui-state-active, #envFactorsPanelContainer .ui-slider .ui-slider-handle:hover, .ui-slider-handle.ui-state-active, #transmissionRatioPanelContainer .ui-slider .ui-slider-handle:hover, .ui-slider-handle.ui-state-active {
+     background-color: #C6C6C6;
+     border: none;
+     cursor: pointer;
+}
+ .tsCruveContainer #motorAreaAccordionContainer #tsPointsPanelContainer .ui-slider .ui-slider-handle:focus, #envFactorsPanelContainer .ui-slider .ui-slider-handle:focus, #transmissionRatioPanelContainer .ui-slider .ui-slider-handle:focus {
+     outline: none;
+}
+*/
+ .tsCruveContainer #motorAreaAccordionContainer #tsPointsPanelContainer .title {
+     font: Bold 14px Open Sans;
+     color: #474747;
+     padding-right: 1px;
+     align-self: center;
+}
+ .tsCruveContainer #motorAreaAccordionContainer #tsPointsPanelContainer .appComboBox {
+     align-self: center;
+}
+ #envFactorsPanelContainer .title, #transmissionRatioPanelContainer .title, #motorDataContainer .title {
+     font: Bold 14px Open Sans;
+     color: #474747;
+     padding-right: 1px;
+}
+ .tsCruveContainer .titleTextLoad{
+     font-family: Open Sans;
+     font-size: 14px;
+     color: #6f6f6f;
+     max-width: 100px;
+     text-align: center;
+     display: inline-block;
+     font-weight: bold;
+}
+ .tsCruveContainer .titleTextMotor{
+     font-family: Open Sans;
+     font-size: 14px;
+     color: #6f6f6f;
+     max-width: 100px;
+     text-align: center;
+     display: inline-block;
+     font-weight: bold;
+}
+ #tsPointsPanelContainer .cosmatt-unitComboBox{
+     padding-top: 5px;
+     padding-bottom: 5px;
+}
+ #tsPointsPanelContainer .peakTorqueMotorSide, #tsPointsPanelContainer .rmsTorqueMotorSide, #tsPointsPanelContainer .peakSpeedMotorSide, #tsPointsPanelContainer .peakAccelerationMotorSide, #tsPointsPanelContainer .rmsAccelerationMotorSide{
+     align-self: center;
+}
+ #tsPointsPanelContainer .peakTorqueMotorSide .response-status, #tsPointsPanelContainer .rmsTorqueMotorSide .response-status, #tsPointsPanelContainer .peakSpeedMotorSide .response-status, #tsPointsPanelContainer .peakAccelerationMotorSide .response-status, #tsPointsPanelContainer .rmsAccelerationMotorSide .response-status{
+     display: inline;
+}
+ #tsPointsPanelContainer .rmsAccele,#tsPointsPanelContainer .peakAccele{
+     white-space: nowrap;
+     overflow: hidden;
+     text-overflow: ellipsis;
+}
+ .tsCruveContainer #motorAreaAccordionContainer #tsPointsPanelContainer label.value, #envFactorsPanelContainer label.value, #transmissionRatioPanelContainer label.value {
+     font-weight: normal;
+     font-size: 12px;
+}
+ .tsCruveContainer .panel-body.operatingPointsCont{
+     max-width: 500px;
+}
+/*.tsCruveContainer #motorAreaAccordionContainer #tsPointsPanelContainer div {
+     padding-left: 7px;
+     padding-right: 7px;
+}
+*/
+/*.tsCruveContainer .ui-slider .ui-slider-handle.ui-corner-flat {
+     border-top-left-radius: 0px !important;
+     border-top-right-radius: 0px !important;
+     border-bottom-left-radius: 0px !important;
+     border-bottom-right-radius: 0px !important;
+}
+*/
+/*.tsCruveContainer .ui-slider .ui-slider-handle.ui-corner-all.ui-state-default.ui-state-focus {
+     background-color: #337ab7;
+     background-position-x: 58px;
+     border: none;
+}
+*/
+/*.tsCruveContainer .motorSpecData {
+     cursor: pointer;
+}
+*/
+ #motorAreaAccordionContainer{
+     width : 100%;
+}
+ .tsCruveContainer .motorTableTitle .closeButtonStyle {
+     color: #333;
+     cursor: pointer;
+     display: inline;
+     float: right;
+     height: 20px;
+     margin-right: 11px;
+     text-align: center;
+     width: 20px;
+}
+ .tsCruveContainer .motorTableTitle .closeButtonStyle:hover {
+     background-color: #ddd 
+}
+ .tsCruveContainer #motorAreaAccordionContainer .panel-heading a:hover, a:focus {
+     text-decoration: none;
+}
+ .tsCruveContainer #motorAreaAccordionContainer .panel-default {
+     margin-bottom: 5px;
+     border: 1px solid;
+     border-color: #ddd;
+     border-radius: 4px;
+}
+ .tsCruveContainer #motorAreaAccordionContainer .panel-heading .panel-title {
+     font-size: 16px;
+     color: #000;
+     margin-bottom: 0;
+     font-family: open Sans;
+     font-weight: normal;
+}
+ .tsCruveContainer #motorAreaAccordionContainer .panel-heading .panel-title a {
+     color: black;
+     display: block;
+     padding: 10px 15px;
+     margin: -10px -15px;
+}
+ .tsCruveContainer #sizeSlider .slider-selection {
+     background: #BABABA;
+}
+ .tsCruveContainer .solutionDivider {
+     border: 1px dashed #ddd;
+     margin: 5px;
+}
+ .tsCruveContainer .solutionInfoTitle {
+     font-family: Open Sans,Regular;
+     font-size: 16px;
+     color: #000;
+}
+ .tsCruveContainer .solutionInfoContainer {
+     padding-top: 8px;
+     font-family: Arial;
+     font-size: 14px;
+     color: #474747;
+     padding-right: 2px;
+    /* font-size: 12px;
+    */
+}
+ .tsCruveContainer .solutionInfoContainer .padding-right-zero{
+     padding-right: 0;
+}
+ .tsCruveContainer .padding-right-zero{
+     padding-right: 0;
+}
+ .tsCruveContainer .solutionInfoContainer .padding-left-right-zero{
+     padding-right: 0;
+     padding-left: 0;
+}
+ .tsCruveContainer .driveName, .motorName, .voltageName, .solutionStatus {
+     padding: 5px;
+}
+ .tsCruveContainer .panelNew {
+     margin-bottom: 20px;
+     background-color: #fff;
+     border: 1px solid transparent;
+     border-radius: 4px;
+     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+     box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+ .tsCruveContainer .panelNew {
+     margin-bottom: 20px;
+     background-color: #fff;
+     border: 1px solid transparent;
+     border-radius: 4px;
+     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+     box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+ .tsCruveContainer .panelNew {
+     margin-bottom: 0;
+     border-radius: 4px;
+}
+ .tsCruveContainer .panel-group .panelNew {
+     margin-bottom: 5px;
+     border-radius: 4px;
+}
+ .tsCruveContainer .panel-defaultNew {
+     border-color: #ddd;
+}
+ .tsCruveContainer #motorAreaAccordionContainer .panel-heading {
+     color: #333;
+     background-color: #f5f5f5;
+     border-color: #ddd;
+     cursor: default;
+}
+ .tsCruveContainer .solutionStatus {
+     color: white;
+     font-size: 12px;
+     padding: 1px 12px 1px 12px;
+     border-radius: 5px;
+}
+ .tsCruveContainer .motorPass {
+     background-color: #64BD63;
+}
+ .tsCruveContainer .motorFail {
+     background-color: #DD5826 
+}
+ .tsCruveContainer .accordion-plus-minus, .tsCruveContainer .accordion-plus-plus {
+     font-size: 12px;
+}
+ .tsCruveContainer .motorDataOpenPanle{
+     display: block;
+     visibility: visible;
+}
+ .tsCruveContainer .widgetNumberInput{
+     height: 20px;
+     width:55%;
+     display: inline-block;
+     padding: 6px;
+     max-width: 95px;
+}
+ .tsCruveContainer #servoMotorTSCurve .tsPlotArea{
+     max-width: 530px;
+     min-height: 460px;
+    /*max-height: 460px;
+    */
+    /*min-width: 362px;
+     min-height: 362px;
+    */
+     margin: 0 auto;
+}
+/* .tsCruveContainer #servoMotorInfoContainer .motorSpecTable .tableTitle{
+     color: #5bc0de;
+}
+ */
+/*input[type=radio ]:not(old) + label > span{
+     display : inline-block;
+     width : 0.875em;
+     height : 0.875em;
+     margin : 0.25em 0.5em 0.25em 0.25em;
+     border : 0.0625em solid rgb(192,192,192);
+     border-radius : 0.25em;
+     background : rgb(224,224,224);
+     background-image : -moz-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+     background-image : -ms-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+     background-image : -o-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+     background-image : -webkit-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+     background-image : linear-gradient(rgb(240,240,240),rgb(224,224,224));
+     vertical-align : bottom;
+}
+ input[type=radio ]:not(old):checked + label > span{
+     background-image : -moz-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+     background-image : -ms-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+     background-image : -o-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+     background-image : -webkit-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+     background-image : linear-gradient(rgb(224,224,224),rgb(240,240,240));
+}
+ input[type=radio]:not(old):checked + label > span > span{
+     display : block;
+     width : 0.5em;
+     height : 0.5em;
+     margin : 0.125em;
+     border : 0.0625em solid rgb(115,153,77);
+     border-radius : 0.125em;
+     background : rgb(153,204,102);
+     background-image : -moz-linear-gradient(rgb(179,217,140),rgb(153,204,102));
+     background-image : -ms-linear-gradient(rgb(179,217,140),rgb(153,204,102));
+     background-image : -o-linear-gradient(rgb(179,217,140),rgb(153,204,102));
+     background-image : -webkit-linear-gradient(rgb(179,217,140),rgb(153,204,102));
+     background-image : linear-gradient(rgb(179,217,140),rgb(153,204,102));
+}
+*/
+ .tsCruveContainer .correct {
+     background-color: #f0fff0 !important;
+     border-color: #7DC27D;
+     color:#7DC27D;
+}
+ .tsCruveContainer .incorrect {
+     background-color: #fff0f0 !important;
+     border-color: #A90329;
+     color: #da1a33;
+}
+/*******************************************/
+ .pagination-container {
+     margin : 0.5rem;
+}
+ #motorAreaAccordionContainer #PaginationDiv .Folio {
+     padding : 0;
+     margin : 0;
+     border : none;
+     box-shadow : unset;
+     background-color : white;
+     position : relative;
+     display : flex;
+     flex-direction : row;
+     justify-content: center;
+     flex-wrap : nowrap;
+}
+ #motorAreaAccordionContainer #PaginationDiv span.FolioPage, span.FolioControl {
+     line-height: 1.25;
+     text-decoration: none;
+    /*padding : 0.5rem 1rem;
+    */
+     display : inline-block;
+     margin-left : -1px;
+     box-shadow : unset;
+     color : #0886C7;
+     background-color : white;
+     border : 1px solid #ddd;
+     top : 0;
+     bottom : 0;
+}
+ #motorAreaAccordionContainer #PaginationDiv span.FolioPages {
+     flex-grow : 2;
+     display : flex;
+     flex-direction : row;
+}
+ #motorAreaAccordionContainer #PaginationDiv span.FolioPage {
+     flex-grow : 1;
+     text-align: center;
+     font-family: Arial;
+     font-style: normal;
+     font-size: 14px;
+     color:#0988c8;
+     background-color:#fff;
+     padding-top: 8px;
+}
+ #motorAreaAccordionContainer #PaginationDiv span.FolioControl {
+     position : relative;
+    /*padding : 0.5rem 1rem;
+    */
+    /*padding-bottom : 0.75rem;
+    */
+     margin : 0;
+     flex-grow : 0.1;
+     text-align: center;
+}
+ #motorAreaAccordionContainer #PaginationDiv span.FolioPrevious {
+     border-right-width: 0;
+    /*padding-top: 3px;
+     padding-bottom: 7px;
+    */
+     background-color: #f3f3f3;
+}
+ #motorAreaAccordionContainer #PaginationDiv span.FolioControl.Disabled {
+    cursor: not-allowed;
+}
+ #motorAreaAccordionContainer #PaginationDiv span.FolioPage.Disabled {
+    padding: 5px;
+    color: #888;
+    cursor: not-allowed;
+}
+ #motorAreaAccordionContainer #PaginationDiv span.FolioNext {
+     border-left-width: 0;
+    /*padding-top: 3px;
+     padding-bottom: 7px;
+    */
+     background-color: #f3f3f3;
+}
+ #motorAreaAccordionContainer #PaginationDiv .FolioPage.Active {
+     background-color : #0988C8;
+     color : #fff;
+     border-top-color: #0988C8;
+     border-bottom-color: #0988C8;
+     font-weight: bold;
+}
+ #motorAreaAccordionContainer .panel-group .panelHeadingNew{
+     padding:0;
+}
+ #motorAreaAccordionContainer .panel-group .widget-textbox-height{
+     height: 26px;
+     text-align: left !important;
+     padding-left: 6px;
+}
+ #motorAreaAccordionContainer .display-flex{
+     display: -webkit-box;
+}
+ #motorAreaAccordionContainer span.FolioPage.Ellipsis{
+     cursor: text;
+     opacity: 0.4;
+}
+ #motorAreaAccordionContainer .FolioPage.Ellipsis:hover {
+     font-weight: normal;
+}
+ #motorAreaAccordionContainer .fa-chevron-left, #motorAreaAccordionContainer .fa-chevron-right{
+     padding-top:9px;
+}
+ #motorAreaAccordionContainer .margin-bottom{
+     margin-bottom: 10px;
+}
+ #motorAreaAccordionContainer #envFactorsPanelContainer .response-status{
+    /*display: inline-block;
+    */
+     padding-left: 8px;
+     font-size: 12px;
+     display: none;
+}
+ #motorAreaAccordionContainer #envFactorsPanelContainer .response-status .incorrect{
+     font-size: 14px;
+     color: #da1a33;
+     display: inline-block;
+     width: 12% 
+}
+ #motorAreaAccordionContainer #envFactorsPanelContainer .response-status .correct{
+     font-size: 14px;
+     color: #7DC27D;
+     display: inline-block;
+     width: 12% 
+}
+ #motorAreaAccordionContainer #envFactorsPanelContainer .response-status .correct-answer{
+     display: inline-block;
+     color: #388e3c;
+     padding-left: 10px;
+     font-weight: bold;
+     white-space: nowrap;
+     overflow: hidden;
+     text-overflow: ellipsis;
+     width: 88%;
+     line-height: 1;
+}
+ #motorAreaAccordionContainer .solutionInfoTitle .response-status{
+    /*display: inline-block;
+    */
+     padding-left: 8px;
+     font-size: 12px;
+     display: none;
+}
+ #motorAreaAccordionContainer .solutionInfoTitle .response-status .incorrect{
+     font-size: 14px;
+     color: #da1a33;
+     display: inline-block;
+}
+ #motorAreaAccordionContainer .solutionInfoTitle .response-status .correct{
+     font-size: 14px;
+     color: #388e3c;
+     display: inline-block;
+}
+ #motorAreaAccordionContainer .solutionInfoTitle .response-status .correct-answer{
+     display: inline;
+     color: #388e3c;
+     padding-left: 10px;
+     font-weight: bold;
+     width: 88%;
+}
+ #servoMotorTSCurve .titleSection{
+     margin: 13px auto 4px auto;
+     display: table;
+     padding: 5px;
+     color:#343434;
+     font: normal 18px Open Sans;
+}
+ #servoMotorArea .titleSection{
+     padding: 15px;
+     font-size: 16px;
+}
+ #motorAreaAccordionContainer #solutionTitle, #motorAreaAccordionContainer #motorName{
+    display: inline-block;
+}
+ #motorAreaAccordionContainer .statusContainer{
+     display: inline-block;
+     vertical-align: middle;
+     margin-bottom: 3px;
+}
+/*#transmissionRatioPanelContainer .cosmatt-unitComboBox{
+     display: inline;
+}
+*/
+ #motorAreaAccordionContainer .tansmComboBox{
+     display: inline-block;
+}
+ @media (min-width: 1024px) and (max-width: 1440px) {
+     .tsCruveContainer #motorAreaAccordionContainer #tsPointsPanelContainer .title, #envFactorsPanelContainer .title, #transmissionRatioPanelContainer .title, #motorDataContainer .title {
+        /* font-size: 12px;
+         */
+    }
+     .tsCruveContainer .solutionInfoContainer {
+         font-size: 12px;
+    }
+     .tsCruveContainer {
+         font-size: 12px;
+    }
+     .tsCruveContainer #motorAreaAccordionContainer .panel-heading .panel-title{
+         font-size: 14px;
+    }
+}
+ @media (min-width: 768px) and (max-width: 1204px) {
+     .tsCruveContainer #servoMotorTSCurve{
+         width :100%;
+         flex: inherit;
+         max-width: 100%;
+    }
+     .tsCruveContainer #servoMotorArea{
+         width :100%;
+         flex: inherit;
+         max-width: 100%;
+    }
+}
+ #tsPointsPanelContainer .loadSideImg{
+     background-image: url("/assets/load_side.png");
+     background-repeat: no-repeat;
+     background-size: contain;
+     display: inline-block;
+     width: 49px;
+     height: 23px;
+     vertical-align: middle;
+     margin-left: 10px;
+}
+ #tsPointsPanelContainer .motorSideImg{
+     background-image: url("/assets/motor_side.png");
+     background-repeat: no-repeat;
+     background-size: contain;
+     display: inline-block;
+     width: 49px;
+     height: 23px;
+     vertical-align: middle;
+     margin-left: 10px;
+}
+ .tsCruveContainer #sliderContainer .titleTextLoad{
+     font-family: Open Sans;
+     font-size: 14px;
+     color: #6f6f6f;
+     max-width: 100px;
+     text-align: center;
+     display: inline-block;
+     font-weight: bold;
+}
+ .tsCruveContainer #sliderContainer .titleTextMotor{
+     font-family: Open Sans;
+     font-size: 14px;
+     color: #6f6f6f;
+     max-width: 100px;
+     text-align: center;
+     display: inline-block;
+     font-weight: bold;
+}
+ .tsCruveContainer .greyClass{
+     background-color: #f8f8f8 
+}
+ #motorDataContainer .maxSpeedTitle,#motorDataContainer .inertiaTitle, #motorDataContainer .pkStallTorqueTitle,#motorDataContainer .contStallTorqueTitle{
+     font: Bold 14px Open Sans;
+     color: #474747;
+     display: inline;
+}
+ #motorDataContainer .maxSpeedValue, #motorDataContainer .inertiaValue, #motorDataContainer .peakStaTorqueVal, #motorDataContainer .continuousStaTorqueVal{
+     font: normal 14px Open Sans;
+     color: #474747;
+     display: inline;
+}
+ #motorDataContainer .unitStyle{
+     font: normal 14px Open Sans;
+     color: #cb3434;
+     display: inline;
+}
+ #tsPointsPanelContainer .unitInputLabel{
+     color: #868686;
+     font-size: 14px;
+}
+ #tsPointsPanelContainer .unitLabel{
+     font: normal 14px Open Sans;
+     color: #cb3434;
+}
+ #tsPointsPanelContainer input.form-control, #envFactorsPanelContainer input.form-control, #transmissionRatioPanelContainer input.form-control{
+     font-size: 14px;
+}
+ #motorAreaAccordionContainer #PaginationDiv .pointer-events-none{
+     pointer-events:none;
+}
+ #motorAreaAccordionContainer #PaginationDiv span.gray-background{
+     background-color: #eee;
+}
+ #transmissionRatioPanelContainer .trRatioValue{
+     padding-left:0;
+     padding-right:0;
+}
+ #transmissionRatioPanelContainer .trRatioValue .response-status{
+     padding-left: 8px;
+     font-size: 12px;
+}
+ #transmissionRatioPanelContainer .trRatioValue .response-status .incorrect{
+     font-size: 14px;
+     color: #da1a33;
+     display: inline-block;
+}
+ #transmissionRatioPanelContainer .trRatioValue .response-status .correct-answer{
+     display: inline;
+     color: #388e3c;
+     padding-left: 10px;
+     font-weight: 700;
+     width: 88%;
+}
+ #transmissionRatioPanelContainer .trRatioValue .response-status .correct{
+     font-size: 14px;
+     color: #7DC27D;
+     display: inline-block;
+     width: 12%;
+}
+ #transmissionRatioPanelContainer .trRatioSlider .transmContainer{
+     height: 15px;
+     width: 260px;
+     background-color: #fff;
+}
+ #transmissionRatioPanelContainer .trRatioSlider .transmInnerContainer{
+     width: 2860px;
+}
+ #transmissionRatioPanelContainer .trRatioSlider .transmLabel{
+     height: 20px;
+     width: 260px;
+     background-color: #fff;
+}
+ #transmissionRatioPanelContainer .trRatioSlider .transmLabel li{
+     display: inline;
+     font-weight: 700;
+     font-size: 11px;
+}
+ #transmissionRatioPanelContainer .trRatioSlider .transmLabel li.fourthLi{
+     position: absolute;
+     min-width: 14px;
+     left: 230px;
+}
+ #transmissionRatioPanelContainer .trRatioSlider .transmLabel li.thirdLi{
+     position: absolute;
+     min-width: 14px;
+     left: 160px;
+}
+ #transmissionRatioPanelContainer .trRatioSlider .transmLabel li.secondLi{
+     position: absolute;
+     min-width: 14px;
+     left: 94px;
+}
+ #transmissionRatioPanelContainer .trRatioSlider .transmLabel li.firstLi{
+     position: absolute;
+     min-width: 14px;
+     left: 28px;
+}
+ #transmissionRatioPanelContainer .pointer-events-none{
+     pointer-events:none;
+}
+ #tsPointsPanelContainer .row{
+     display: flex;
+     justify-content: center;
+}
+ .tsCruveContainer .cosmatt-unitComboBox .btn-group{
+     font-family: Open sans-serif;
+}
+ .tsCruveContainer .cosmatt-unitComboBox .btn-group>.btn+.dropdown-toggle{
+     padding-top: 3px;
+}
+ .tsCruveContainer #transmissionRatioPanelContainer .transmissionRaioVal{
+     display: inline;
+}
+ .tsCruveContainer .cosmatt-unitComboBox .btn-group>.btn:first-child{
+     font-family: Open Sans;
+     min-width: 60px;
+     padding-right: 5px;
+     text-overflow: ellipsis;
+     padding-left: 10px;
+     overflow: hidden;
+     width:79px;
+}
+ .tsCruveContainer .cosmatt-unitComboBox .dropdown-item{
+     font-family: Open Sans;
+}
+ .cosmatt-unitComboBox .unitTextBox .spinner.input-group input{
+     min-width: 60px;
+}
+ .tsCruveContainer .row.vertical-divider > div[class^="col-"] {
+     border-right: 1px solid #DDD;
+}
+ .tsCruveContainer .row.vertical-divider div[class^="col-"]:first-child {
+     border-left: none;
+     border-right: none;
+}
+ .tsCruveContainer .row.vertical-divider div[class^="col-"]:last-child {
+     border-right: none;
+}
+ .tsCruveContainer #collapseTwo1 .panel-body{
+     padding-top: 2px;
+}
+ .transmContainer .mCSB_scrollTools.mCSB_scrollTools_horizontal{
+     top: 0;
+}
+ .trRatioValue .transInputBox{
+     width: 60%;
+     height: 28px;
+     display: inline;
+     border-radius: 4px !important;
+}
+
+/*********Logarithmic slider css block***************/
+.tsCruveContainer .trRatioSlider .mCSB_scrollTools,
+    .tsCruveContainer .trRatioSlider .mCS-rounded-dark.mCSB_scrollTools .mCSB_buttonLeft, 
+    .tsCruveContainer .trRatioSlider .mCS-rounded-dark.mCSB_scrollTools .mCSB_buttonRight{
+     opacity: initial;
+}
+
+.tsCruveContainer .trRatioSlider .mCSB_dragger .mCSB_dragger_bar{
+    width: 12px;
+    height: 12px;
+    margin-top: 2px;
+    background: linear-gradient(#1799db, #0683c2);
+}
+
+.tsCruveContainer .trRatioSlider .mCSB_dragger .mCSB_dragger_bar:hover{
+  
+    background: linear-gradient(#1276a9, #056596);
+}       
+
+.tsCruveContainer .trRatioSlider .mCSB_scrollTools .mCSB_buttonLeft{
+   
+    background-position:0px -113px;;
+}
+
+.tsCruveContainer .trRatioSlider .mCSB_scrollTools .mCSB_buttonRight{
+    
+    background-position:0px -129px;
+}
+
+.tsCruveContainer .trRatioSlider .mCSB_scrollTools .mCSB_buttonLeft:hover{
+     background-position:-80px -113px;
+}
+
+.tsCruveContainer .trRatioSlider .mCSB_scrollTools .mCSB_buttonRight:hover{
+     background-position:-80px -129px;
+} 
+/**********Logarithmic slider css block End**************/
+
+
+#tsPointsPanelContainer .fa{display:inline}
+#tsPointsPanelContainer .response-status{
+    padding-left:5px;
+    min-width:50px;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    align-self:center;
+    width:80px;
+}

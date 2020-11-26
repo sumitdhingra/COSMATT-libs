@@ -1,0 +1,258 @@
+.cosmatt-motionProfile {
+    position: relative;
+    &.unselectable {
+        -moz-user-select: -moz-none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+    }
+    &.assessment-mode {
+        box-shadow: 0 0 0 #ddd !important;
+        border: none !important;
+        .form-horizontal{
+            .inputs{
+                .input-container {
+                    .control-label {
+                        top: -8px;
+                        position: relative;
+                    }
+                }
+            }
+        }
+    }
+    #inputControls {
+        .form-horizontal {
+            width: 100%;
+            .inputs {
+                display: inline-block;
+                vertical-align: top;
+                padding-top: 15px;
+                &.output-entries {
+                    width: 50%; // width: 40%;
+                    float: right;
+                    .input-container {
+                        float: right;
+                    }
+                }
+                &.input-entries {
+                    // width: 60%;
+                    width: 50%;
+                }
+                .input-container {
+                    width: 100%;
+                    .control-label {
+                        width: 34%;
+                        display: inline-block;
+                    }
+                    .combo-container {
+                        padding-left: 15px;
+                        width: 64%;
+                        display: inline-block;
+                        .cosmatt-unitComboBox {
+                            .response-status {
+                                display: inline-block;
+                                padding-left: 8px;
+                                font-size: 12px;
+                        
+                                .incorrect {
+                                    font-size: 14px;
+                                    color: #da1a33;
+                                    display: inline-block;
+                                }
+                                .correct {
+                                    display: inline-block;
+                                    color: #388e3c;
+                                }
+                                .correct-answer {
+                                    display: inline-block;
+                                    color: #388e3c;
+                                    padding-left: 5px;
+                                    font-weight: bold;
+                                }
+                            }
+                        }
+                    }
+                }
+                #indexTypeInputContainer{
+                    .combo-container{
+                        .cosmatt-unitComboBox{
+                            .unitTextBox{
+                                width: 62%;
+                                max-width: 210px;
+                                .input-group{
+                                    display: block;
+                                    input{
+                                        width: 100%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .correct {
+            .cosmatt-unitComboBox {
+                .unitTextBox {
+                    background-color: #f0fff0;
+                    border-color: #7DC27D;
+                    .form-control{
+                        background-color: #f0fff0;
+                        border-color: #7DC27D;
+                    }
+                }
+                .unitComboBox{
+                    background-color: #f0fff0;
+                    border-color: #7DC27D;
+                    .btn-group .boxSelectedVal{
+                        background-color: #f0fff0;
+                        border-color: #7DC27D;
+                        opacity:1;
+                    }
+                }
+            }
+        }
+        .incorrect {
+            .cosmatt-unitComboBox {
+                .unitTextBox {
+                    background-color: #fff0f0;
+                    border-color: #A90329;
+                     .form-control{
+                       background-color: #fff0f0;
+                       border-color: #A90329;
+                    }
+                }
+                .unitComboBox{
+                    background-color: #fff0f0;
+                    border-color: #A90329;
+                     .btn-group .boxSelectedVal{
+                       background-color: #fff0f0;
+                       border-color: #A90329;
+                       opacity:1;
+                    }
+                }
+            }
+        }
+    }
+    &.resizeon1240{
+       #inputControls {
+        .form-horizontal {
+            .inputs {
+                .input-container {
+                      .combo-container {
+                        .cosmatt-unitComboBox {
+                            .response-status {
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                                width: 32%;
+                             }
+                        }
+                    }
+                }
+            }
+        }
+      }
+    }
+    &.lowerResolution{
+       //overflow:hidden; 
+       #inputControls {
+        .form-horizontal {
+            .inputs {
+                .input-container {
+                    margin-bottom: 7px;
+                     .control-label {
+                        display: block;
+                        width:100%;
+                        text-align:left;
+                        margin-left: 20%;
+                    }
+                      .combo-container {
+                            display: block;
+                            width:100%;
+                            margin-left:20%;
+                            padding-left: 0;
+                        .cosmatt-unitComboBox {
+                            .response-status {
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                                width: 32%;
+                             }
+                        }
+                    }
+                }
+            }
+        }
+      }
+    }
+    #profileButtons {
+        margin: 10px 0;
+    }
+    .profileButton {
+        margin-right: 10px;
+    }
+    #graphContainer {
+        .graphArea {
+            height: 400px;
+            min-width: 10px;
+            display: inline-block;
+            // padding: 0px 20px !important;
+            margin: 0px 15px;
+            max-height: 400px;
+            min-height: 250px;
+            // min-width: 250px;
+            &:first-child {
+                margin-left: 0px !important;
+            }
+            &:last-child {
+                margin-right: 0px !important;
+            }
+            .legend table {
+                pointer-events: none;
+                margin: 0px !important;
+                width: initial;
+                tr {
+                    background-color: transparent !important;
+                    border-width: 0px !important;
+                    td {
+                        border-width: 0px !important;
+                        padding: 0px !important;
+                        vertical-align: middle;
+                        &.legendColorBox {
+                            div {
+                                div {
+                                    border-radius: 0% !important;
+                                    width: 0 !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .smoothnessDropDown .smoothnessDDMenu {
+        max-width: 211px;
+        width: 64%;
+    }
+    #tooltip {
+        padding: 4px 10px !important;
+        background-color: rgba(0, 0, 0, 0.8) !important;
+        border: solid 1px #000 !important;
+        z-index: 100 !important;
+        font-size: 12px !important;
+        color: #fff !important;
+        -webkit-border-radius: 3px !important;
+        -moz-border-radius: 3px !important;
+        border-radius: 3px !important;
+        position: absolute;
+        display: none; // opacity: 0.80;
+    }
+    .control-label {
+        text-align: right;
+        margin-bottom: 0;
+        padding-top: 7px;
+    }
+}

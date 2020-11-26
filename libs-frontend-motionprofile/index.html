@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>COSMATT Motion Profile Plugin</title>
+  <meta charset="UTF-8">  
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+
+  <link rel="stylesheet" href="dist/css/motionProfile.min.css">
+  <link rel="stylesheet" type="text/css" href="../libs-frontend-unitcombobox/dist/css/unitComboBox.min.css">
+  <style>
+    html {
+      height: 100%;
+    }
+    
+    body {
+      min-height: 100%;
+      position: relative;
+    }
+    
+    #sample-container {
+      padding-bottom: 60px;
+      width: 80%;
+    }
+    
+    #sample-container #plotArea {
+      width: 100%;
+      height: 100%;
+    }
+    
+    #editConfigBtnContainer {
+      width: 100%;
+      padding-right: 30px;
+      bottom: 0px;
+      z-index: 100;
+      height: 60px;
+      position: absolute;
+      right: 0px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container" id="sample-container">
+    <div id="plotArea"></div>
+    <div class="modal fade text-center" id="theModal">
+      <div class="modal-dialog">
+        <div class="modal-content"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="node_modules/jquery-flot/jquery.flot.js"></script>
+  <script src="node_modules/jquery-flot/jquery.flot.resize.js"></script>
+  <script src="node_modules/flot-axislabels/jquery.flot.axislabels.js"></script>
+
+  <script src="../libs-frontend-unitcombobox/dist/js/unitComboBox.min.js"></script>
+  <script src="../number-formatter/dist/cosmatt-number-formatter.js"></script>
+  <script src="../libs-frontend-unitcombobox/src/js/unitConverter.js"></script>
+  <script src="dist/js/motionProfile.js"></script>
+   <!--<script src="src/js/profileCalculation/accelDecelSegment.js"></script>
+  <script src="src/js/profileCalculation/cruiseSegment.js"></script>
+  <script src="src/js/profileCalculation/profileIndexModel.js"></script>
+  <script src="src/js/libs-frontend-motionprofile.js"></script>
+  <script src="src/js/profile-initial-config.js"></script> -->
+
+  <script>
+    'use strict'
+    var onGraphPaint = function() {
+      console.log('graph painted');
+    };
+
+    var onGraphDrag = function() {
+      console.log('graph dragged to update');
+    };
+
+    var CONF = COSMATT.MotionProfile.ENUMS;
+
+    var graphConfigData = {
+      onGraphPaint: onGraphPaint,
+      onGraphDrag: onGraphDrag,
+      moveDistance: 125.664,
+      activeProfileIndex: 1,
+      graphMode: CONF.GraphMode.individualAxis,
+      showGraphs: [CONF.Graphs.position, CONF.Graphs.velocity, CONF.Graphs.acceleration],
+      showGraphDragHandles: CONF.GraphHandles.showAll,
+      readOnlyInputs: [CONF.DataFields.peakVelocity, CONF.DataFields.rmsVelocity, CONF.DataFields.peakAccelaration, CONF.DataFields.rmsAccelaration],
+      showProfiles: [CONF.Profiles.profile1, CONF.Profiles.profile2, CONF.Profiles.profile3],
+      smoothness: CONF.Smoothness.automatic,
+      showEditConfigButton: true,
+      hideInputs: ["smoothness"]
+    };
+    if (sessionStorage.getItem('obj') != null) {
+      var confUpdates = JSON.parse(sessionStorage.getItem("obj"));
+      for (var updateKey in confUpdates) {
+        graphConfigData[updateKey] = confUpdates[updateKey];
+      }
+    }
+
+    var a = $("#plotArea").motionProfile(graphConfigData);
+  </script>
+</body>
+
+</html>

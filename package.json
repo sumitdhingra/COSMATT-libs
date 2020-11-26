@@ -1,0 +1,33 @@
+{
+  "name": "libs-frontend-cosmatt",
+  "version": "1.1.210",
+  "description": "Repository to hold all widgets related to cosmatt course",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/comprodls/libs-frontend-cosmatt.git"
+  },
+  "keywords": [
+    "cosmatt",
+    "widgets"
+  ],
+  "napa": {
+    "libs-leonardo-core": "git+https://2266b6fbc335a66e5ea3fe63b4b54794da09e65c:x-oauth-basic@github.com/comprodls/libs-leonardo-core#0.0.1"
+  },
+  "napa-config": {
+    "cache": false,
+    "log-level": "error"
+  },
+  "author": "Compro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/comprodls/libs-frontend-cosmatt/issues"
+  },
+  "homepage": "https://github.com/comprodls/libs-frontend-cosmatt#readme",
+  "dependencies": {
+    "napa": "^3.0.0"
+  }
+}

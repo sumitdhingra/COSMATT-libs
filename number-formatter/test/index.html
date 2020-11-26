@@ -1,0 +1,66 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col col-xs-12">
+                <h2>Number Formatter Test Bench</h1>
+                    </hr>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col col-4">
+                <div class="form-group">
+                    <label for="significantDigits">Significant Digits</label>
+                    <input id="significantDigits" type="number" class="form-control option" value="3">
+                </div>
+            </div>
+            <div class="col col-4">
+                <div class="form-group">
+                    <label for="maxPositiveExponent">Max Positive Exponent</label>
+                    <input id="maxPositiveExponent" type="number" class="form-control option" value="6">
+                </div>
+            </div>
+            <div class="col col-4">
+                <div class="form-group">
+                    <label for="minNegativeExponent">Min Negative Exponent</label>
+                    <input id="minNegativeExponent" type="number" class="form-control option" value="-4">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col col-6">
+                <h4>Input Number</h4>
+                <div class="form-group">
+                    <!-- <label for="number">Input Number</label> -->
+                    <input id="number" type="text" class="form-control" value="123">
+                </div>
+            </div>
+            <div class="col col-3">
+                <h4>Output:</h4>
+                <div id="result-view" class="result"></div>
+            </div>
+            <div class="col col-3">
+                <h4>Editable on blur:</h4>
+                <div id="editable-result-view" class="result"></div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="../dist/cosmatt-jquery-number-formatter.js"></script>
+    <script src="../dist/cosmatt-number-formatter.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>

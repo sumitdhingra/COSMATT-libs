@@ -1,0 +1,18 @@
+.assessment-widget {
+	box-shadow: 0 0 0 #ddd !important;
+    border: none !important;
+}
+
+.assessment-widget .question-text {
+  margin-bottom: 10px;
+}
+
+.assessment-widget .answer-text {
+  position: relative;
+  top: -3px;
+}
+
+.assessment-widget img.shadow {
+   box-shadow: 6px 6px 9px #ddd;
+   border: 1px solid #ddd;
+}

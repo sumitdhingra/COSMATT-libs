@@ -1,0 +1,120 @@
+<!DOCTYPE html><html class=topLevel><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>COSMATT Inertia Calculator</title><script type=text/x-mathjax-config>MathJax.Hub.Config({
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+    });</script><script type=text/javascript async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><link rel=stylesheet href=node_modules/bootstrap/dist/css/bootstrap.css><link rel=stylesheet type=text/css href=unitComboBox.css><link href=./dist/static/css/app.css rel=stylesheet><link rel=stylesheet type=text/css href=unitLabelControl.css><style>html {
+      height: 100%;
+    }
+
+    body {
+      position: relative;
+      min-height: 100%
+    }
+    
+    #inertia-calculator-container {
+      display: inline-block;
+      /*left: 50%;
+      transform: translate(-50%);*/
+      position: absolute;
+      width: 100%;
+      padding-bottom: 60px;
+      height: 100%;
+    }
+    
+    .inertia-calculator {
+      width: 100%;
+      height: 100%;
+    }
+    
+    #editConfigBtnContainer {
+      width: 100%;
+      padding-right: 30px;
+      bottom: 0px;
+      z-index: 100;
+      height: 60px;
+      position: fixed;
+      right: 0px;
+    }
+
+    #totalInertia .formulaSection .MathJax_Display {
+      max-width: 50%;
+      margin-left: 12px;
+    }
+
+    .combo-container {
+      /*max-width: 300px!important;*/
+    }
+    
+    .editConfigBtn {
+      float: right;
+    }</style><script src=https://code.jquery.com/jquery-3.2.1.js integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin=anonymous sync></script><script src=unitComboBox.js></script><script src=unitConverter.js></script><script src=cosmatt-number-formatter.js></script><script src=node_modules/tether/dist/js/tether.min.js></script><script type=text/javascript src=node_modules/bootstrap/dist/js/bootstrap.js></script><script src=node_modules/jquery-flot/jquery.flot.js></script><script src=node_modules/jquery-flot/jquery.flot.resize.js></script><script type=text/javascript src=./dist/static/js/app.js></script><link href="https://fonts.googleapis.com/css?family=Open+Sans" rel=stylesheet><script type=text/javascript src=unitLabelControl.js></script><link href=/static/css/app.css rel=stylesheet></head><body><div id=inertia-calculator-container class=container><div id=ic class=inertia-calculator></div><div class="modal fade text-center" id=theModal><div class="modal-dialog IC-modal-dialog-config"><div class=modal-content></div></div></div></div><script type=text/javascript src=/static/js/app.js></script></body><script>function preload(arrayOfImages) {
+          $(arrayOfImages).each(function(){
+              $('<img/>')[0].src = this;
+          });
+      }
+
+      preload([
+          './src/Assets/img/inertia-calculator/HCylinder_Density.svg',
+          './src/Assets/img/inertia-calculator/HCylinder_Mass.svg',
+          './src/Assets/img/inertia-calculator/SCylinder_Density.svg',
+          './src/Assets/img/inertia-calculator/SCylinder_Mass.svg'
+      ]);
+
+    var settings = {
+      ViewSettings:{
+        DisplayShapeSelector: false
+      },
+      SelectedShape:0,
+      Shapes:[ 
+          {
+            ShapeInfo: {
+              Type: "SolidCylinder",
+              Name: "Solid Cylinder",
+              Radius: 0.001,
+              Mass: 19,
+              Material: "Aluminium (1060 Alloy)",
+              Height: 0.001,
+              AxisofRotation:"X",
+              MassOrDensity:"Mass",
+              FormulaString:"I = \\frac{1}{2}{M \\left(\\frac{D}{2} \\right)^2}",
+              InclusionMode:"Additive"
+            }
+        },
+        {
+            ShapeInfo: {
+              Type: "HollowCylinder",
+              Name: "Hollow Cylinder",
+              InnerRadius: 0.0005,
+              OuterRadius: 0.001,
+              Mass: 19,
+              Material: "Aluminium (1060 Alloy)",
+              Height: 0.001,
+              AxisofRotation:"X",
+              MassOrDensity:"Mass",
+              FormulaString:"I = \\frac{1}{2}{M \\left(\\left(\\frac{D_{1}}{2} \\right)^2 + \\left(\\frac{D_{2}}{2} \\right)^2\\right)}"
+            }
+        }
+        ],
+        inertiaChangedCallback : function(res) {
+          console.log('IO received...', JSON.parse(res));
+        }
+      };
+      
+      if (sessionStorage.getItem('obj') != null) {
+        var confUpdates = JSON.parse(sessionStorage.getItem("obj"));
+        for (var updateKey in confUpdates) {
+          settings[updateKey] = confUpdates[updateKey];
+        }
+      }
+
+      var $ic = $("#ic").InertiaCalculator(settings);
+      //dummy comment
+
+      var $body = $('body #inertia-calculator-container');
+      var $editConfigButton = '<div id="editConfigBtnContainer"><button class="btn btn-default editConfigBtn pull-right btn-lg" type="button" data-remote="configWindow.html" data-target="#theModal" data-toggle="modal" >Edit Configurations</div>';
+      $body.append($editConfigButton);
+
+      $('.editConfigBtn').on('click',function(){
+        var dataURL = $(this).attr('data-remote');
+        $('.modal-content').load(dataURL,function(){
+           $('#myModal').appendTo("body").modal('show');
+        });
+    });</script></html>
